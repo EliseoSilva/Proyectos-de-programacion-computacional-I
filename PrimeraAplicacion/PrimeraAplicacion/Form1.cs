@@ -6,5 +6,10 @@ namespace PrimeraAplicacion
         {
             InitializeComponent();
         }
+
+        private void btnSaludo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Primera Aplicación de Windows Forms en C#");
+        }
     }
 }

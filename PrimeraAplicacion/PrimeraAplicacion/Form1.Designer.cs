@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            btnSaludo = new Button();
+            SuspendLayout();
+            // 
+            // btnSaludo
+            // 
+            btnSaludo.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSaludo.Location = new Point(125, 128);
+            btnSaludo.Name = "btnSaludo";
+            btnSaludo.Size = new Size(145, 85);
+            btnSaludo.TabIndex = 0;
+            btnSaludo.Text = "Saludo";
+            btnSaludo.UseVisualStyleBackColor = true;
+            btnSaludo.Click += btnSaludo_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(438, 439);
+            Controls.Add(btnSaludo);
+            Name = "Form1";
             Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnSaludo;
     }
 }
