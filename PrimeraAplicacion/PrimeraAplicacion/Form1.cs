@@ -7,15 +7,50 @@ namespace PrimeraAplicacion
             InitializeComponent();
         }
 
-        private void btnSaludo_Click(object sender, EventArgs e)
+        private void btnCalcular_Click(object sender, EventArgs e)
         {
-            double num1, num2, resultado;
+            double num1 = 0, num2 = 0, resultado=0;
             num1 = double.Parse(txtNum1.Text);
             num2 = double.Parse(txtNum2.Text);
 
-            resultado = num1 + num2;
+            if (rdbSuma.Checked)
+            {
+                resultado = num1 + num2;
 
-            lblRespuesta.Text = "Respuesta: " + resultado.ToString();
+            }
+            if (rdbResta.Checked)
+            {
+                resultado = num1 - num2;
+            }
+
+            if (rdbMultiplicacion.Checked)
+            {
+                resultado = num1 * num2;
+            }
+
+            if (rdbDivision.Checked)
+                resultado = num1 / num2;
+
+            if (rdbExponente.Checked)
+            {
+                resultado = Math.Pow(num1, num2);
+            }
+
+            if (rdbRaiz.Checked)
+            {
+                resultado = Math.Pow(num1, 1 / num2);
+            }
+
+            if (rdbFactorial.Checked)
+            {
+                resultado = 1;
+                for (int i = 0; i <= num1; i++)
+                {
+                    resultado = resultado * i;
+                }
+            }
+
+            lblRespuesta.Text = "Respuesta:" + Math.Round(resultado, 4).ToString();
         }
     }
 }

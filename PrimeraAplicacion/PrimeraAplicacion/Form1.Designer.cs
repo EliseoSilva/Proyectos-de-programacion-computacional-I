@@ -34,18 +34,27 @@
             txtNum1 = new TextBox();
             txtNum2 = new TextBox();
             lblRespuesta = new Label();
+            gboOperaciones = new GroupBox();
+            rdbSuma = new RadioButton();
+            rdbResta = new RadioButton();
+            rdbMultiplicacion = new RadioButton();
+            rdbDivision = new RadioButton();
+            rdbExponente = new RadioButton();
+            rdbRaiz = new RadioButton();
+            rdbFactorial = new RadioButton();
+            gboOperaciones.SuspendLayout();
             SuspendLayout();
             // 
             // btnCalcular
             // 
             btnCalcular.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCalcular.Location = new Point(128, 216);
+            btnCalcular.Location = new Point(176, 391);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(145, 85);
             btnCalcular.TabIndex = 0;
             btnCalcular.Text = "Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
-            btnCalcular.Click += btnSaludo_Click;
+            btnCalcular.Click += btnCalcular_Click;
             // 
             // lblNum1
             // 
@@ -85,17 +94,112 @@
             // 
             lblRespuesta.AutoSize = true;
             lblRespuesta.Font = new Font("Times New Roman", 12F);
-            lblRespuesta.Location = new Point(142, 176);
+            lblRespuesta.Location = new Point(24, 329);
             lblRespuesta.Name = "lblRespuesta";
             lblRespuesta.Size = new Size(131, 22);
             lblRespuesta.TabIndex = 5;
             lblRespuesta.Text = "Respuesta :      ";
             // 
+            // gboOperaciones
+            // 
+            gboOperaciones.Controls.Add(rdbFactorial);
+            gboOperaciones.Controls.Add(rdbRaiz);
+            gboOperaciones.Controls.Add(rdbExponente);
+            gboOperaciones.Controls.Add(rdbDivision);
+            gboOperaciones.Controls.Add(rdbMultiplicacion);
+            gboOperaciones.Controls.Add(rdbResta);
+            gboOperaciones.Controls.Add(rdbSuma);
+            gboOperaciones.Location = new Point(258, 24);
+            gboOperaciones.Name = "gboOperaciones";
+            gboOperaciones.Size = new Size(250, 261);
+            gboOperaciones.TabIndex = 6;
+            gboOperaciones.TabStop = false;
+            gboOperaciones.Text = "Opciones";
+            // 
+            // rdbSuma
+            // 
+            rdbSuma.AutoSize = true;
+            rdbSuma.Checked = true;
+            rdbSuma.Location = new Point(17, 38);
+            rdbSuma.Name = "rdbSuma";
+            rdbSuma.Size = new Size(71, 24);
+            rdbSuma.TabIndex = 0;
+            rdbSuma.TabStop = true;
+            rdbSuma.Text = "SUMA";
+            rdbSuma.UseVisualStyleBackColor = true;
+            // 
+            // rdbResta
+            // 
+            rdbResta.AutoSize = true;
+            rdbResta.Location = new Point(17, 68);
+            rdbResta.Name = "rdbResta";
+            rdbResta.Size = new Size(72, 24);
+            rdbResta.TabIndex = 1;
+            rdbResta.TabStop = true;
+            rdbResta.Text = "RESTA";
+            rdbResta.UseVisualStyleBackColor = true;
+            // 
+            // rdbMultiplicacion
+            // 
+            rdbMultiplicacion.AutoSize = true;
+            rdbMultiplicacion.Location = new Point(17, 98);
+            rdbMultiplicacion.Name = "rdbMultiplicacion";
+            rdbMultiplicacion.Size = new Size(144, 24);
+            rdbMultiplicacion.TabIndex = 2;
+            rdbMultiplicacion.TabStop = true;
+            rdbMultiplicacion.Text = "MULTIPLICACION";
+            rdbMultiplicacion.UseVisualStyleBackColor = true;
+            // 
+            // rdbDivision
+            // 
+            rdbDivision.AutoSize = true;
+            rdbDivision.Location = new Point(17, 129);
+            rdbDivision.Name = "rdbDivision";
+            rdbDivision.Size = new Size(92, 24);
+            rdbDivision.TabIndex = 3;
+            rdbDivision.TabStop = true;
+            rdbDivision.Text = "DIVISION";
+            rdbDivision.UseVisualStyleBackColor = true;
+            // 
+            // rdbExponente
+            // 
+            rdbExponente.AutoSize = true;
+            rdbExponente.Location = new Point(17, 159);
+            rdbExponente.Name = "rdbExponente";
+            rdbExponente.Size = new Size(112, 24);
+            rdbExponente.TabIndex = 4;
+            rdbExponente.TabStop = true;
+            rdbExponente.Text = "EXPONENTE";
+            rdbExponente.UseVisualStyleBackColor = true;
+            // 
+            // rdbRaiz
+            // 
+            rdbRaiz.AutoSize = true;
+            rdbRaiz.Location = new Point(17, 189);
+            rdbRaiz.Name = "rdbRaiz";
+            rdbRaiz.Size = new Size(62, 24);
+            rdbRaiz.TabIndex = 5;
+            rdbRaiz.TabStop = true;
+            rdbRaiz.Text = "RAIZ";
+            rdbRaiz.UseVisualStyleBackColor = true;
+            // 
+            // rdbFactorial
+            // 
+            rdbFactorial.AutoSize = true;
+            rdbFactorial.Location = new Point(17, 219);
+            rdbFactorial.Name = "rdbFactorial";
+            rdbFactorial.Size = new Size(103, 24);
+            rdbFactorial.TabIndex = 6;
+            rdbFactorial.TabStop = true;
+            rdbFactorial.Text = "FACTORIAL";
+            rdbFactorial.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(432, 343);
+            ClientSize = new Size(530, 526);
+            Controls.Add(gboOperaciones);
             Controls.Add(lblRespuesta);
             Controls.Add(txtNum2);
             Controls.Add(txtNum1);
@@ -104,6 +208,8 @@
             Controls.Add(btnCalcular);
             Name = "Form1";
             Text = "Form1";
+            gboOperaciones.ResumeLayout(false);
+            gboOperaciones.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +222,13 @@
         private TextBox txtNum1;
         private TextBox txtNum2;
         private Label lblRespuesta;
+        private GroupBox gboOperaciones;
+        private RadioButton rdbFactorial;
+        private RadioButton rdbRaiz;
+        private RadioButton rdbExponente;
+        private RadioButton rdbDivision;
+        private RadioButton rdbMultiplicacion;
+        private RadioButton rdbResta;
+        private RadioButton rdbSuma;
     }
 }
