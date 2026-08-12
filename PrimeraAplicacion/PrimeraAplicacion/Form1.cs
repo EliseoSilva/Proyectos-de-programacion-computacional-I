@@ -9,7 +9,13 @@ namespace PrimeraAplicacion
 
         private void btnSaludo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Primera Aplicación de Windows Forms en C#");
+            double num1, num2, resultado;
+            num1 = double.Parse(txtNum1.Text);
+            num2 = double.Parse(txtNum2.Text);
+
+            resultado = num1 + num2;
+
+            lblRespuesta.Text = "Respuesta: " + resultado.ToString();
         }
     }
 }

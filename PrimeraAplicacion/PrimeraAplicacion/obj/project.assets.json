@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elise\\Documents\\Programacion I\\PrimeraAplicacion\\PrimeraAplicacion\\PrimeraAplicacion.csproj",
+      "projectUniqueName": "C:\\Users\\elise\\Documents\\Programacion I calculadora\\PrimeraAplicacion\\PrimeraAplicacion\\PrimeraAplicacion.csproj",
       "projectName": "PrimeraAplicacion",
-      "projectPath": "C:\\Users\\elise\\Documents\\Programacion I\\PrimeraAplicacion\\PrimeraAplicacion\\PrimeraAplicacion.csproj",
+      "projectPath": "C:\\Users\\elise\\Documents\\Programacion I calculadora\\PrimeraAplicacion\\PrimeraAplicacion\\PrimeraAplicacion.csproj",
       "packagesPath": "C:\\Users\\elise\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elise\\Documents\\Programacion I\\PrimeraAplicacion\\PrimeraAplicacion\\obj\\",
+      "outputPath": "C:\\Users\\elise\\Documents\\Programacion I calculadora\\PrimeraAplicacion\\PrimeraAplicacion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
