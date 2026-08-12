@@ -34,7 +34,6 @@
             txtNum1 = new TextBox();
             txtNum2 = new TextBox();
             lblRespuesta = new Label();
-            gboOperaciones = new GroupBox();
             rdbSuma = new RadioButton();
             rdbResta = new RadioButton();
             rdbMultiplicacion = new RadioButton();
@@ -42,13 +41,15 @@
             rdbExponente = new RadioButton();
             rdbRaiz = new RadioButton();
             rdbFactorial = new RadioButton();
+            gboOperaciones = new GroupBox();
+            cboOpciones = new ComboBox();
             gboOperaciones.SuspendLayout();
             SuspendLayout();
             // 
             // btnCalcular
             // 
             btnCalcular.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCalcular.Location = new Point(176, 391);
+            btnCalcular.Location = new Point(183, 419);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(145, 85);
             btnCalcular.TabIndex = 0;
@@ -99,22 +100,6 @@
             lblRespuesta.Size = new Size(131, 22);
             lblRespuesta.TabIndex = 5;
             lblRespuesta.Text = "Respuesta :      ";
-            // 
-            // gboOperaciones
-            // 
-            gboOperaciones.Controls.Add(rdbFactorial);
-            gboOperaciones.Controls.Add(rdbRaiz);
-            gboOperaciones.Controls.Add(rdbExponente);
-            gboOperaciones.Controls.Add(rdbDivision);
-            gboOperaciones.Controls.Add(rdbMultiplicacion);
-            gboOperaciones.Controls.Add(rdbResta);
-            gboOperaciones.Controls.Add(rdbSuma);
-            gboOperaciones.Location = new Point(258, 24);
-            gboOperaciones.Name = "gboOperaciones";
-            gboOperaciones.Size = new Size(250, 261);
-            gboOperaciones.TabIndex = 6;
-            gboOperaciones.TabStop = false;
-            gboOperaciones.Text = "Opciones";
             // 
             // rdbSuma
             // 
@@ -194,11 +179,38 @@
             rdbFactorial.Text = "FACTORIAL";
             rdbFactorial.UseVisualStyleBackColor = true;
             // 
+            // gboOperaciones
+            // 
+            gboOperaciones.Controls.Add(rdbFactorial);
+            gboOperaciones.Controls.Add(rdbRaiz);
+            gboOperaciones.Controls.Add(rdbExponente);
+            gboOperaciones.Controls.Add(rdbDivision);
+            gboOperaciones.Controls.Add(rdbMultiplicacion);
+            gboOperaciones.Controls.Add(rdbResta);
+            gboOperaciones.Controls.Add(rdbSuma);
+            gboOperaciones.Location = new Point(268, 124);
+            gboOperaciones.Name = "gboOperaciones";
+            gboOperaciones.Size = new Size(250, 261);
+            gboOperaciones.TabIndex = 6;
+            gboOperaciones.TabStop = false;
+            gboOperaciones.Text = "Opciones";
+            // 
+            // cboOpciones
+            // 
+            cboOpciones.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboOpciones.FormattingEnabled = true;
+            cboOpciones.Items.AddRange(new object[] { "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "EXPONENTE", "RAIZ", "FACTORIAL" });
+            cboOpciones.Location = new Point(285, 48);
+            cboOpciones.Name = "cboOpciones";
+            cboOpciones.Size = new Size(206, 28);
+            cboOpciones.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(530, 526);
+            Controls.Add(cboOpciones);
             Controls.Add(gboOperaciones);
             Controls.Add(lblRespuesta);
             Controls.Add(txtNum2);
@@ -222,13 +234,14 @@
         private TextBox txtNum1;
         private TextBox txtNum2;
         private Label lblRespuesta;
-        private GroupBox gboOperaciones;
-        private RadioButton rdbFactorial;
-        private RadioButton rdbRaiz;
-        private RadioButton rdbExponente;
-        private RadioButton rdbDivision;
-        private RadioButton rdbMultiplicacion;
-        private RadioButton rdbResta;
         private RadioButton rdbSuma;
+        private RadioButton rdbResta;
+        private RadioButton rdbMultiplicacion;
+        private RadioButton rdbDivision;
+        private RadioButton rdbExponente;
+        private RadioButton rdbRaiz;
+        private RadioButton rdbFactorial;
+        private GroupBox gboOperaciones;
+        private ComboBox cboOpciones;
     }
 }
