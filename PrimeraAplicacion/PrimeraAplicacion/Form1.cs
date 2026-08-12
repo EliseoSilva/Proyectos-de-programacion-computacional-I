@@ -41,6 +41,9 @@ namespace PrimeraAplicacion
                         resultado = resultado * i;
                     }
                     break;
+                case 7:
+                    resultado = num1 % num2;
+                    break;
             }
             /*if (rdbSuma.Checked)
             {

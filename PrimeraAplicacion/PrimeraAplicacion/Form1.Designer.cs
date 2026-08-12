@@ -199,7 +199,7 @@
             // 
             cboOpciones.DropDownStyle = ComboBoxStyle.DropDownList;
             cboOpciones.FormattingEnabled = true;
-            cboOpciones.Items.AddRange(new object[] { "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "EXPONENTE", "RAIZ", "FACTORIAL" });
+            cboOpciones.Items.AddRange(new object[] { "SUMA", "RESTA", "MULTIPLICACION", "DIVISION", "EXPONENTE", "RAIZ", "FACTORIAL", "MODULO" });
             cboOpciones.Location = new Point(285, 48);
             cboOpciones.Name = "cboOpciones";
             cboOpciones.Size = new Size(206, 28);
