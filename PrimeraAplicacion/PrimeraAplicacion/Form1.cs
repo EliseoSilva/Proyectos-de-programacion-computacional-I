@@ -1,3 +1,5 @@
+using System.Diagnostics.Eventing.Reader;
+
 namespace PrimeraAplicacion
 {
     public partial class Form1 : Form
@@ -9,80 +11,41 @@ namespace PrimeraAplicacion
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            double num1 = 0, num2 = 0, resultado = 0, indexOpcion = 0;
-            num1 = double.Parse(txtNum1.Text);
-            num2 = double.Parse(txtNum2.Text);
-
-            indexOpcion = cboOpciones.SelectedIndex;
-            switch (indexOpcion)
+            int edad = int.Parse(txtEdad.Text);
+            if (edad < 0)
             {
-                case 0:
-                    resultado = num1 + num2;
-                    break;
-                case 1:
-                    resultado = num1 - num2;
-                    break;
-                case 2:
-                    resultado = num1 * num2;
-                    break;
-                case 3:
-                    resultado = num1 / num2;
-                    break;
-                case 4:
-                    resultado = Math.Pow(num1, num2);
-                    break;
-                case 5:
-                    resultado = Math.Pow(num1, 1 / num2);
-                    break;
-                case 6:
-                    resultado = 1;
-                    for (int i = 1; i <= num1; i++)
-                    {
-                        resultado = resultado * i;
-                    }
-                    break;
-                case 7:
-                    resultado = num1 % num2;
-                    break;
+                lblRespuesta.Text = "Edad no válida";
             }
-            /*if (rdbSuma.Checked)
+            else if (edad <= 2)
             {
-                resultado = num1 + num2;
+                lblRespuesta.Text = "Bebé";
 
             }
-            if (rdbResta.Checked)
+            else if (edad <= 12)
             {
-                resultado = num1 - num2;
+                lblRespuesta.Text = "Niño";
             }
-
-            if (rdbMultiplicacion.Checked)
+            else if (edad <= 17)
             {
-                resultado = num1 * num2;
+                lblRespuesta.Text = "Adolescente";
             }
-
-            if (rdbDivision.Checked)
-                resultado = num1 / num2;
-
-            if (rdbExponente.Checked)
+            else if (edad <= 65)
             {
-                resultado = Math.Pow(num1, num2);
+                lblRespuesta.Text = "Adulto";
             }
-
-            if (rdbRaiz.Checked)
+            else if (edad <= 80)
             {
-                resultado = Math.Pow(num1, 1 / num2);
-            }
+                lblRespuesta.Text = "Adulto mayor";
 
-            if (rdbFactorial.Checked)
-            {
-                resultado = 1;
-                for (int i = 0; i <= num1; i++)
-                {
-                    resultado = resultado * i;
-                }
             }
-            */
-            lblRespuesta.Text = "Respuesta:" + Math.Round(resultado, 4).ToString();
+            else if (edad <= 130)
+            {
+                lblRespuesta.Text = "Larga Vida";
+            }
+            else
+            {
+                lblRespuesta.Text = "Edad no válida";
+            }
         }
     }
 }
