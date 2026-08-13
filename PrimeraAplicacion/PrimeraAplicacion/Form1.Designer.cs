@@ -30,14 +30,14 @@
         {
             btnCalcular = new Button();
             lblRespuesta = new Label();
-            txtEdad = new TextBox();
+            txtTabla = new TextBox();
             lblEdad = new Label();
             SuspendLayout();
             // 
             // btnCalcular
             // 
             btnCalcular.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCalcular.Location = new Point(139, 285);
+            btnCalcular.Location = new Point(91, 306);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(145, 85);
             btnCalcular.TabIndex = 0;
@@ -49,28 +49,28 @@
             // 
             lblRespuesta.AutoSize = true;
             lblRespuesta.Font = new Font("Times New Roman", 12F);
-            lblRespuesta.Location = new Point(78, 233);
+            lblRespuesta.Location = new Point(259, 51);
             lblRespuesta.Name = "lblRespuesta";
             lblRespuesta.Size = new Size(111, 22);
             lblRespuesta.TabIndex = 1;
             lblRespuesta.Text = "Respuesta:   ";
             // 
-            // txtEdad
+            // txtTabla
             // 
-            txtEdad.Location = new Point(139, 127);
-            txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(136, 27);
-            txtEdad.TabIndex = 2;
+            txtTabla.Location = new Point(12, 86);
+            txtTabla.Name = "txtTabla";
+            txtTabla.Size = new Size(136, 27);
+            txtTabla.TabIndex = 2;
             // 
             // lblEdad
             // 
             lblEdad.AutoSize = true;
             lblEdad.Font = new Font("Times New Roman", 12F);
-            lblEdad.Location = new Point(78, 132);
+            lblEdad.Location = new Point(12, 61);
             lblEdad.Name = "lblEdad";
-            lblEdad.Size = new Size(57, 22);
+            lblEdad.Size = new Size(79, 22);
             lblEdad.TabIndex = 3;
-            lblEdad.Text = "Edad:";
+            lblEdad.Text = "Numero:";
             // 
             // Form1
             // 
@@ -78,7 +78,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(443, 412);
             Controls.Add(lblEdad);
-            Controls.Add(txtEdad);
+            Controls.Add(txtTabla);
             Controls.Add(lblRespuesta);
             Controls.Add(btnCalcular);
             Name = "Form1";
@@ -91,7 +91,7 @@
 
         private Button btnCalcular;
         private Label lblRespuesta;
-        private TextBox txtEdad;
+        private TextBox txtTabla;
         private Label lblEdad;
     }
 }

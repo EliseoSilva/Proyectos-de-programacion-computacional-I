@@ -13,21 +13,17 @@ namespace PrimeraAplicacion
         {
             try
             {
-                int edad = int.Parse(txtEdad.Text);
-                string msg = "Ingrese su edad";
-                msg = edad < 0 ? "edad no puede ser negativa":
-                    edad <= 2 ? "Eres un bebé" :
-                    edad <= 12 ? "Eres un niño" :
-                    edad <= 17 ? "Eres un adolescente" :
-                    edad <= 65 ? "Eres un adulto" :
-                    edad <= 80 ? "Eres un adulto mayor" :
-                    edad <= 130 ? "Tienes una larga vida" :
-                    "Edad no válida";
+                int tabla = int.Parse(txtTabla.Text), i = 1;
+                string msg = "";
+                while (i <= 10) { 
+                    msg += $"{tabla} x {i} = {tabla * i}\n";
+                    i++;
+                }
                 lblRespuesta.Text = msg;
             }
             catch (Exception)
             {
-                lblRespuesta.Text = "Ingrese su edad en numeros enteros";
+                lblRespuesta.Text = "Ingrese un número válido";
             }
         }
     }
