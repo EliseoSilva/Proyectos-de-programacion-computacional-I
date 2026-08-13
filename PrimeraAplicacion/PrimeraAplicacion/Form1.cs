@@ -13,12 +13,12 @@ namespace PrimeraAplicacion
         {
             try
             {
-                int tabla = int.Parse(txtTabla.Text), i = 1;
+                int tabla = int.Parse(txtTabla.Text);
                 string msg = "";
-                do { 
+                for (int i = 1; i <= 10; i++)
+                {
                     msg += $"{tabla} x {i} = {tabla * i}\n";
-                    i++;
-                } while (i <= 10);
+                }
                 lblRespuesta.Text = msg;
             }
             catch (Exception)
