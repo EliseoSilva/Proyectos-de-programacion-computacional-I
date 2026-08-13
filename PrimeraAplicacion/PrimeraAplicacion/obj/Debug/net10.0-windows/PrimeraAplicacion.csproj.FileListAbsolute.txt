@@ -32,3 +32,4 @@ C:\Users\elise\Documents\Programacion I calculadora\PrimeraAplicacion\PrimeraApl
 C:\Users\elise\Documents\Programacion I calculadora\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.pdb
 C:\Users\elise\Documents\Programacion I calculadora\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.genruntimeconfig.cache
 C:\Users\elise\Documents\Programacion I calculadora\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\ref\PrimeraAplicacion.dll
+C:\Users\elise\Documents\Programacion I calculadora\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.Properties.Resources.resources
