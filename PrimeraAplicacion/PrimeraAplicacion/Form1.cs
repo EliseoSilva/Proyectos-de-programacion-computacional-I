@@ -14,40 +14,16 @@ namespace PrimeraAplicacion
             try
             {
                 int edad = int.Parse(txtEdad.Text);
-                if (edad < 0)
-                {
-                    lblRespuesta.Text = "Edad no válida";
-                }
-                else if (edad <= 2)
-                {
-                    lblRespuesta.Text = "Bebé";
-
-                }
-                else if (edad <= 12)
-                {
-                    lblRespuesta.Text = "Niño";
-                }
-                else if (edad <= 17)
-                {
-                    lblRespuesta.Text = "Adolescente";
-                }
-                else if (edad <= 65)
-                {
-                    lblRespuesta.Text = "Adulto";
-                }
-                else if (edad <= 80)
-                {
-                    lblRespuesta.Text = "Adulto mayor";
-
-                }
-                else if (edad <= 130)
-                {
-                    lblRespuesta.Text = "Larga Vida";
-                }
-                else
-                {
-                    lblRespuesta.Text = "Edad no válida";
-                }
+                string msg = "Ingrese su edad";
+                msg = edad < 0 ? "edad no puede ser negativa":
+                    edad <= 2 ? "Eres un bebé" :
+                    edad <= 12 ? "Eres un niño" :
+                    edad <= 17 ? "Eres un adolescente" :
+                    edad <= 65 ? "Eres un adulto" :
+                    edad <= 80 ? "Eres un adulto mayor" :
+                    edad <= 130 ? "Tienes una larga vida" :
+                    "Edad no válida";
+                lblRespuesta.Text = msg;
             }
             catch (Exception)
             {
