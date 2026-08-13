@@ -15,10 +15,10 @@ namespace PrimeraAplicacion
             {
                 int tabla = int.Parse(txtTabla.Text), i = 1;
                 string msg = "";
-                while (i <= 10) { 
+                do { 
                     msg += $"{tabla} x {i} = {tabla * i}\n";
                     i++;
-                }
+                } while (i <= 10);
                 lblRespuesta.Text = msg;
             }
             catch (Exception)
