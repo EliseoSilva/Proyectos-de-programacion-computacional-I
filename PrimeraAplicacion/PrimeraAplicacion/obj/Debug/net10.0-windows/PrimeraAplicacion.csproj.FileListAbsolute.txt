@@ -51,3 +51,21 @@ C:\Users\elise\Documents\Programacion conversor de unidades\PrimeraAplicacion\Pr
 C:\Users\elise\Documents\Programacion conversor de unidades\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.pdb
 C:\Users\elise\Documents\Programacion conversor de unidades\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.genruntimeconfig.cache
 C:\Users\elise\Documents\Programacion conversor de unidades\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\ref\PrimeraAplicacion.dll
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.Form1.resources
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.Properties.Resources.resources
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.csproj.GenerateResource.cache
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.AssemblyInfoInputs.cache
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.AssemblyInfo.cs
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.csproj.CoreCompileInputs.cache
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.sourcelink.json
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.dll
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\refint\PrimeraAplicacion.dll
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.pdb
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\bin\Debug\net10.0-windows\PrimeraAplicacion.exe
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\bin\Debug\net10.0-windows\PrimeraAplicacion.deps.json
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\bin\Debug\net10.0-windows\PrimeraAplicacion.runtimeconfig.json
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\bin\Debug\net10.0-windows\PrimeraAplicacion.dll
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\bin\Debug\net10.0-windows\PrimeraAplicacion.pdb
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\PrimeraAplicacion.genruntimeconfig.cache
+C:\Users\elise\Documents\Clasificacion de pacientes\PrimeraAplicacion\PrimeraAplicacion\obj\Debug\net10.0-windows\ref\PrimeraAplicacion.dll
