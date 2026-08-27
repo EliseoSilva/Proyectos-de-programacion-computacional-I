@@ -24,14 +24,17 @@ namespace PrimeraAplicacion
         }
         double desviacionTipica(double[] serie, double media)
         {
-            return Math.Sqrt(serie.Average(n => Math.Pow(n - media, 2)));
+            return Math.Sqrt(varianza(serie, media));
         }
         double mediaArmonica(double[] serie)
         {
             int n = serie.Length;
             return n / serie.Sum(x => 1 / x);
         }
-        //media armonica
+        double varianza(double[] serie, double media)
+        {
+            return serie.Average(n => Math.Pow(n - media, 2));
+        }
         private void btnProcesar_Click(object sender, EventArgs e)
         {
             try
@@ -44,6 +47,7 @@ namespace PrimeraAplicacion
                 ltsValores.Items.Add("La media es: " + Math.Round(m, 3).ToString());
                 ltsValores.Items.Add("La desviación típica es: " + Math.Round(desviacionTipica(miSerie, m), 3).ToString());
                 ltsValores.Items.Add("La media armónica es: " + Math.Round(mediaArmonica(miSerie), 3).ToString());
+                ltsValores.Items.Add("La varianza es: " + Math.Round(varianza(miSerie, m), 3).ToString());
             }
             catch { }
         }
