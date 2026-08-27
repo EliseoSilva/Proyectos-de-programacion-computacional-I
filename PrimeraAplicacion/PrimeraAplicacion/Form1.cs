@@ -12,29 +12,49 @@ namespace PrimeraAplicacion
             InitializeComponent();
         }
 
-        double media(double[] serie) {  
+        double media(double[] serie)
+        {
             double suma = 0;
-            for (int i = 0; i < serie.Length; i++) {
+            for (int i = 0; i < serie.Length; i++)
+            {
                 suma += serie[i];
-                }
+            }
             double media = suma / serie.Length;
             return media;
         }
-        double desviacionTipica(double[] serie, double media) { 
+        double desviacionTipica(double[] serie, double media)
+        {
             return Math.Sqrt(serie.Average(n => Math.Pow(n - media, 2)));
+        }
+        double mediaArmonica(double[] serie)
+        {
+            int n = serie.Length;
+            return n / serie.Sum(x => 1 / x);
         }
         //media armonica
         private void btnProcesar_Click(object sender, EventArgs e)
         {
             try
             {
+                Limpar();
                 String[] serie = txtSerie.Text.Split(',');
-            double[] miSerie = serie.Select(n=>double.Parse(n)).ToArray();
-            double m = media(miSerie);
+                double[] miSerie = serie.Select(n => double.Parse(n)).ToArray();
+                double m = media(miSerie);
 
                 ltsValores.Items.Add("La media es: " + Math.Round(m, 3).ToString());
                 ltsValores.Items.Add("La desviación típica es: " + Math.Round(desviacionTipica(miSerie, m), 3).ToString());
-            } catch { }
+                ltsValores.Items.Add("La media armónica es: " + Math.Round(mediaArmonica(miSerie), 3).ToString());
+            }
+            catch { }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpar();
+        }
+        private void Limpar()
+        {
+            ltsValores.Items.Clear();
         }
     }
 }

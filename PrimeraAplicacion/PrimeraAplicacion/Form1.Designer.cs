@@ -32,6 +32,7 @@
             ltsValores = new ListBox();
             btnProcesar = new Button();
             txtSerie = new TextBox();
+            btnLimpiar = new Button();
             SuspendLayout();
             // 
             // lblSerie
@@ -49,12 +50,12 @@
             ltsValores.FormattingEnabled = true;
             ltsValores.Location = new Point(47, 119);
             ltsValores.Name = "ltsValores";
-            ltsValores.Size = new Size(189, 244);
+            ltsValores.Size = new Size(249, 244);
             ltsValores.TabIndex = 1;
             // 
             // btnProcesar
             // 
-            btnProcesar.Location = new Point(259, 190);
+            btnProcesar.Location = new Point(319, 119);
             btnProcesar.Name = "btnProcesar";
             btnProcesar.Size = new Size(154, 109);
             btnProcesar.TabIndex = 2;
@@ -69,12 +70,23 @@
             txtSerie.Size = new Size(356, 27);
             txtSerie.TabIndex = 3;
             // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(319, 245);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(154, 109);
+            btnLimpiar.TabIndex = 4;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(529, 422);
+            Controls.Add(btnLimpiar);
             Controls.Add(txtSerie);
             Controls.Add(btnProcesar);
             Controls.Add(ltsValores);
@@ -93,5 +105,6 @@
         private ListBox ltsValores;
         private Button btnProcesar;
         private TextBox txtSerie;
+        private Button btnLimpiar;
     }
 }
