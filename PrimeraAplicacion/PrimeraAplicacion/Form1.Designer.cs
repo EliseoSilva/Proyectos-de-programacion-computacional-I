@@ -95,6 +95,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
             Text = "SISTEMA DE TRIAGE";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
