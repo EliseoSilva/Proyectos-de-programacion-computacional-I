@@ -28,73 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblSerie = new Label();
-            ltsValores = new ListBox();
+            lblActividadEconomica = new Label();
             btnProcesar = new Button();
-            txtSerie = new TextBox();
-            btnLimpiar = new Button();
+            txtEconomia = new TextBox();
+            lblTotal = new Label();
             SuspendLayout();
             // 
-            // lblSerie
+            // lblActividadEconomica
             // 
-            lblSerie.AutoSize = true;
-            lblSerie.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSerie.Location = new Point(47, 62);
-            lblSerie.Name = "lblSerie";
-            lblSerie.Size = new Size(64, 22);
-            lblSerie.TabIndex = 0;
-            lblSerie.Text = "SERIE";
-            // 
-            // ltsValores
-            // 
-            ltsValores.FormattingEnabled = true;
-            ltsValores.Location = new Point(47, 119);
-            ltsValores.Name = "ltsValores";
-            ltsValores.Size = new Size(249, 244);
-            ltsValores.TabIndex = 1;
+            lblActividadEconomica.AutoSize = true;
+            lblActividadEconomica.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblActividadEconomica.Location = new Point(12, 64);
+            lblActividadEconomica.Name = "lblActividadEconomica";
+            lblActividadEconomica.Size = new Size(185, 22);
+            lblActividadEconomica.TabIndex = 0;
+            lblActividadEconomica.Text = "Actividad economica:";
             // 
             // btnProcesar
             // 
-            btnProcesar.Location = new Point(319, 119);
+            btnProcesar.Location = new Point(240, 218);
             btnProcesar.Name = "btnProcesar";
-            btnProcesar.Size = new Size(154, 109);
+            btnProcesar.Size = new Size(229, 55);
             btnProcesar.TabIndex = 2;
             btnProcesar.Text = "PROCESAR";
             btnProcesar.UseVisualStyleBackColor = true;
             btnProcesar.Click += btnProcesar_Click;
             // 
-            // txtSerie
+            // txtEconomia
             // 
-            txtSerie.Location = new Point(117, 62);
-            txtSerie.Name = "txtSerie";
-            txtSerie.Size = new Size(356, 27);
-            txtSerie.TabIndex = 3;
+            txtEconomia.Location = new Point(203, 62);
+            txtEconomia.Name = "txtEconomia";
+            txtEconomia.Size = new Size(356, 27);
+            txtEconomia.TabIndex = 3;
             // 
-            // btnLimpiar
+            // lblTotal
             // 
-            btnLimpiar.Location = new Point(319, 245);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(154, 109);
-            btnLimpiar.TabIndex = 4;
-            btnLimpiar.Text = "LIMPIAR";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(271, 153);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(146, 22);
+            lblTotal.TabIndex = 4;
+            lblTotal.Text = "Total impuestos: ";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(529, 422);
-            Controls.Add(btnLimpiar);
-            Controls.Add(txtSerie);
+            ClientSize = new Size(687, 298);
+            Controls.Add(lblTotal);
+            Controls.Add(txtEconomia);
             Controls.Add(btnProcesar);
-            Controls.Add(ltsValores);
-            Controls.Add(lblSerie);
+            Controls.Add(lblActividadEconomica);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
-            Text = "SISTEMA DE TRIAGE";
+            Text = "Calculador de impuestos";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -102,10 +92,9 @@
 
         #endregion
 
-        private Label lblSerie;
-        private ListBox ltsValores;
+        private Label lblActividadEconomica;
         private Button btnProcesar;
-        private TextBox txtSerie;
-        private Button btnLimpiar;
+        private TextBox txtEconomia;
+        private Label lblTotal;
     }
 }

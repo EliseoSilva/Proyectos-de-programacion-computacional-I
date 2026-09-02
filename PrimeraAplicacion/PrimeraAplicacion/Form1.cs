@@ -6,95 +6,66 @@ namespace PrimeraAplicacion
 {
     public partial class Form1 : Form
     {
-
+        
         public Form1()
         {
             InitializeComponent();
         }
-
-        double media(double[] serie)
-        {
-            double suma = 0;
-            for (int i = 0; i < serie.Length; i++)
-            {
-                suma += serie[i];
-            }
-            double media = suma / serie.Length;
-            return media;
-        }
-        double mediana(double[] serie) {
-            Array.Sort(serie);
-            int n = serie.Length;
-            if (n % 2 == 0)
-                return (serie[n / 2 - 1] + serie[n / 2]) / 2;
-            else
-                return serie[n / 2];
-        }
-        double desviacionTipica(double[] serie, double media)
-        {
-            return Math.Sqrt(varianza(serie, media));
-        }
-        double mediaArmonica(double[] serie)
-        {
-            int n = serie.Length;
-            return n / serie.Sum(x => 1 / x);
-        }
-        double varianza(double[] serie, double media)
-        {
-            return serie.Average(n => Math.Pow(n - media, 2));
-        }
-        double moda(double[] serie)
-        {
-            var grupos = serie.GroupBy(n => n);
-            var moda = grupos.OrderByDescending(g => g.Count()).First().Key;
-            return moda;
-        }
-        double desviacionEstantar(double[] serie, double media)
-        {
-            return Math.Sqrt(varianza(serie, media));
-        }
-        double rango(double[] serie)
-        {
-            return serie.Max() - serie.Min();
-        }
-        double frecuencia(double[] serie, double valor)
-        {
-            return serie.Count(n => n == valor);
-        }
-        private void btnProcesar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Limpar();
-                String[] serie = txtSerie.Text.Split(',');
-                double[] miSerie = serie.Select(n => double.Parse(n)).ToArray();
-                double m = media(miSerie);
-
-                ltsValores.Items.Add("La media es: " + Math.Round(m, 3).ToString());
-                ltsValores.Items.Add("La mediana es: " + Math.Round(mediana(miSerie), 3).ToString());
-                ltsValores.Items.Add("La desviación típica es: " + Math.Round(desviacionTipica(miSerie, m), 3).ToString());
-                ltsValores.Items.Add("La media armónica es: " + Math.Round(mediaArmonica(miSerie), 3).ToString());
-                ltsValores.Items.Add("La varianza es: " + Math.Round(varianza(miSerie, m), 3).ToString());
-                ltsValores.Items.Add("La moda es: " + Math.Round(moda(miSerie), 3).ToString());
-                ltsValores.Items.Add("La desviación estándar es: " + Math.Round(desviacionEstantar(miSerie, m), 3).ToString());
-                ltsValores.Items.Add("El rango es: " + Math.Round(rango(miSerie), 3).ToString());
-                ltsValores.Items.Add("La frecuencia del primer valor es: " + Math.Round(frecuencia(miSerie, miSerie[0]), 3).ToString());
-            }
-            catch { }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
-        private void Limpar()
-        {
-            ltsValores.Items.Clear();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+           double monto = double.Parse(txtEconomia.Text);
+            double impuesto;
+
+            if (monto <= 500)
+                impuesto = 1.5;
+
+            else if (monto <= 1000)
+                impuesto = ((monto - 500.01) / 1000 * 3) + 1.5;
+
+            else if (monto <= 2000)
+                impuesto = ((monto - 1000.01) / 1000 * 3) + 3;
+
+            else if (monto <= 3000)
+                impuesto = ((monto - 2000.01) / 1000 * 3) + 6;
+
+            else if (monto <= 6000)
+                impuesto = ((monto - 3000.01) / 1000 * 2) + 9;
+
+            else if (monto <= 18000)
+                impuesto = ((monto - 8000.01) / 1000 * 2) + 15;
+
+            else if (monto <= 30000)
+                impuesto = ((monto - 18000.01) / 1000 * 2) + 39;
+
+            else if (monto <= 60000)
+                impuesto = ((monto - 30000.01) / 1000 * 1) + 63;
+
+            else if (monto <= 100000)
+                impuesto = ((monto - 60000.01) / 1000 * 0.8) + 93;
+
+            else if (monto <= 200000)
+                impuesto = ((monto - 100000.01) / 1000 * 0.7) + 125;
+
+            else if (monto <= 300000)
+                impuesto = ((monto - 200000.01) / 1000 * 0.6) + 195;
+
+            else if (monto <= 400000)
+                impuesto = ((monto - 300000.01) / 1000 * 0.45) + 255;
+
+            else if (monto <= 500000)
+                impuesto = ((monto - 400000.01) / 1000 * 0.4) + 300;
+
+            else if (monto <= 1000000)
+                impuesto = ((monto - 500000.01) / 1000 * 0.30) + 340;
+
+            else
+                impuesto = ((monto - 1000000.01) / 1000 * 0.18) + 490;
+
+            lblTotal.Text = "Total impuestos: " + impuesto.ToString("N2");
         }
     }
 }
