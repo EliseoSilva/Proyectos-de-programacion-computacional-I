@@ -6,7 +6,7 @@ namespace PrimeraAplicacion
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -17,55 +17,41 @@ namespace PrimeraAplicacion
         }
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-           double monto = double.Parse(txtEconomia.Text);
-            double impuesto;
+            double monto = double.Parse(txtEconomia.Text);
+            double impuesto = 0;
 
-            if (monto <= 500)
-                impuesto = 1.5;
+            double[,] impuestos =
+            {
+        { 0.01, 500, 1.5, 0 },
+        { 500.01, 1000, 1.5, 3 },
+        { 1000.01, 2000, 3, 3 },
+        { 2000.01, 3000, 6, 3 },
+        { 3000.01, 6000, 9, 2 },
+        { 8000.01, 18000, 15, 2 },
+        { 18000.01, 30000, 39, 2 },
+        { 30000.01, 60000, 63, 1 },
+        { 60000.01, 100000, 93, 0.8 },
+        { 100000.01, 200000, 125, 0.7 },
+        { 200000.01, 300000, 195, 0.6 },
+        { 300000.01, 400000, 255, 0.45 },
+        { 400000.01, 500000, 300, 0.4 },
+        { 500000.01, 1000000, 340, 0.30 },
+        { 1000000.01, 99999999, 490, 0.18 }
+    };
 
-            else if (monto <= 1000)
-                impuesto = ((monto - 500.01) / 1000 * 3) + 1.5;
+            for (int i = 0; i < impuestos.GetLength(0); i++)
+            {
+                if (monto >= impuestos[i, 0] && monto <= impuestos[i, 1])
+                {
+                    impuesto = ((monto - impuestos[i, 0]) / 1000 * impuestos[i, 3])
+                               + impuestos[i, 2];
 
-            else if (monto <= 2000)
-                impuesto = ((monto - 1000.01) / 1000 * 3) + 3;
+                    break;
+                }
+            }
 
-            else if (monto <= 3000)
-                impuesto = ((monto - 2000.01) / 1000 * 3) + 6;
-
-            else if (monto <= 6000)
-                impuesto = ((monto - 3000.01) / 1000 * 2) + 9;
-
-            else if (monto <= 18000)
-                impuesto = ((monto - 8000.01) / 1000 * 2) + 15;
-
-            else if (monto <= 30000)
-                impuesto = ((monto - 18000.01) / 1000 * 2) + 39;
-
-            else if (monto <= 60000)
-                impuesto = ((monto - 30000.01) / 1000 * 1) + 63;
-
-            else if (monto <= 100000)
-                impuesto = ((monto - 60000.01) / 1000 * 0.8) + 93;
-
-            else if (monto <= 200000)
-                impuesto = ((monto - 100000.01) / 1000 * 0.7) + 125;
-
-            else if (monto <= 300000)
-                impuesto = ((monto - 200000.01) / 1000 * 0.6) + 195;
-
-            else if (monto <= 400000)
-                impuesto = ((monto - 300000.01) / 1000 * 0.45) + 255;
-
-            else if (monto <= 500000)
-                impuesto = ((monto - 400000.01) / 1000 * 0.4) + 300;
-
-            else if (monto <= 1000000)
-                impuesto = ((monto - 500000.01) / 1000 * 0.30) + 340;
-
-            else
-                impuesto = ((monto - 1000000.01) / 1000 * 0.18) + 490;
-
-            lblTotal.Text = "Total impuestos: " + impuesto.ToString("N2");
+            lblTotal.Text = "Total Impuestos: " + impuesto.ToString("N2");
         }
     }
+    
 }
