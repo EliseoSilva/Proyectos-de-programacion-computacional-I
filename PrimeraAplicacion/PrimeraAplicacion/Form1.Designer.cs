@@ -28,47 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblSerie = new Label();
-            ltsValores = new ListBox();
-            btnProcesar = new Button();
-            txtSerie = new TextBox();
+            lblMonto = new Label();
+            ltsIssIsrAfp = new ListBox();
+            btnCalculo = new Button();
+            txtMonto = new TextBox();
             btnLimpiar = new Button();
             SuspendLayout();
             // 
-            // lblSerie
+            // lblMonto
             // 
-            lblSerie.AutoSize = true;
-            lblSerie.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSerie.Location = new Point(47, 62);
-            lblSerie.Name = "lblSerie";
-            lblSerie.Size = new Size(64, 22);
-            lblSerie.TabIndex = 0;
-            lblSerie.Text = "SERIE";
+            lblMonto.AutoSize = true;
+            lblMonto.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMonto.Location = new Point(47, 62);
+            lblMonto.Name = "lblMonto";
+            lblMonto.Size = new Size(87, 22);
+            lblMonto.TabIndex = 0;
+            lblMonto.Text = "MONTO:";
             // 
-            // ltsValores
+            // ltsIssIsrAfp
             // 
-            ltsValores.FormattingEnabled = true;
-            ltsValores.Location = new Point(47, 119);
-            ltsValores.Name = "ltsValores";
-            ltsValores.Size = new Size(249, 244);
-            ltsValores.TabIndex = 1;
+            ltsIssIsrAfp.FormattingEnabled = true;
+            ltsIssIsrAfp.Location = new Point(47, 119);
+            ltsIssIsrAfp.Name = "ltsIssIsrAfp";
+            ltsIssIsrAfp.Size = new Size(249, 244);
+            ltsIssIsrAfp.TabIndex = 1;
             // 
-            // btnProcesar
+            // btnCalculo
             // 
-            btnProcesar.Location = new Point(319, 119);
-            btnProcesar.Name = "btnProcesar";
-            btnProcesar.Size = new Size(154, 109);
-            btnProcesar.TabIndex = 2;
-            btnProcesar.Text = "PROCESAR";
-            btnProcesar.UseVisualStyleBackColor = true;
-            btnProcesar.Click += btnProcesar_Click;
+            btnCalculo.Location = new Point(319, 119);
+            btnCalculo.Name = "btnCalculo";
+            btnCalculo.Size = new Size(154, 109);
+            btnCalculo.TabIndex = 2;
+            btnCalculo.Text = "CALCULO";
+            btnCalculo.UseVisualStyleBackColor = true;
             // 
-            // txtSerie
+            // txtMonto
             // 
-            txtSerie.Location = new Point(117, 60);
-            txtSerie.Name = "txtSerie";
-            txtSerie.Size = new Size(356, 27);
-            txtSerie.TabIndex = 3;
+            txtMonto.Location = new Point(140, 62);
+            txtMonto.Name = "txtMonto";
+            txtMonto.Size = new Size(156, 27);
+            txtMonto.TabIndex = 3;
             // 
             // btnLimpiar
             // 
@@ -78,34 +77,32 @@
             btnLimpiar.TabIndex = 4;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(529, 422);
+            ClientSize = new Size(615, 519);
             Controls.Add(btnLimpiar);
-            Controls.Add(txtSerie);
-            Controls.Add(btnProcesar);
-            Controls.Add(ltsValores);
-            Controls.Add(lblSerie);
+            Controls.Add(txtMonto);
+            Controls.Add(btnCalculo);
+            Controls.Add(ltsIssIsrAfp);
+            Controls.Add(lblMonto);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
-            Text = "SISTEMA DE TRIAGE";
-            Load += Form1_Load;
+            Text = "DEDUCCIONES DE LEY";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblSerie;
-        private ListBox ltsValores;
-        private Button btnProcesar;
-        private TextBox txtSerie;
+        private Label lblMonto;
+        private ListBox ltsIssIsrAfp;
+        private Button btnCalculo;
+        private TextBox txtMonto;
         private Button btnLimpiar;
     }
 }
