@@ -15,96 +15,83 @@ namespace PrimeraAplicacion
             btnLimpiar.Click += BtnLimpiar_Click;
         }
         
-        public record DeduccionesResult(double SalarioBruto, double ISSS, double AFP, double ISR, double SalarioNeto);
-
-        
-        public static DeduccionesResult CalcularDeducciones(double salarioBruto)
+        // --- Cálculo de factura de agua ---
+        // Devuelve (tarifaAcueducto por m3, tarifaAlcantarillado fija)
+        private static (double tarifaAcueducto, double tarifaAlcantarillado) GetTarifa(bool residencial, int metros)
         {
-            if (salarioBruto <= 0)
-                return new DeduccionesResult(salarioBruto, 0, 0, 0, salarioBruto);
-
-            // Porcentajes fijos
-            double porcentajeISSS = 0.03;   // 3%
-            double porcentajeAFP = 0.0725;  // 7.25%
-
-            double isss = Math.Round(salarioBruto * porcentajeISSS, 2);
-            double afp = Math.Round(salarioBruto * porcentajeAFP, 2);
-
-            double baseImponible = salarioBruto - isss - afp;
-
-            
-            var tramos = new (double limite, double cuotaFija, double tasa)[]
+            if (residencial)
             {
-                (472.00, 0.00, 0.00),         // hasta 472.00 => exento
-                (895.24, 0.00, 0.10),         // 10% sobre el excedente de 472.00
-                (2038.10, 42.20, 0.20),       // 20% sobre el excedente de 895.24 + cuota fija
-                (double.MaxValue, 162.46, 0.30) // 30% sobre el excedente de 2038.10 + cuota fija
-            };
-
-            double isr = 0.0;
-            double limiteAnterior = 0.0;
-
-            foreach (var tramo in tramos)
-            {
-                if (baseImponible <= tramo.limite)
-                {
-                    if (tramo.tasa == 0.0)
-                    {
-                        isr = 0.0;
-                    }
-                    else
-                    {
-                        isr = tramo.cuotaFija + tramo.tasa * Math.Round(baseImponible - limiteAnterior, 2);
-                    }
-                    break;
-                }
-
-                limiteAnterior = tramo.limite;
+                // Rangos residenciales
+                if (metros <= 10) return (2.29, 0.10);
+                if (metros <= 20) return (0.21, 0.10);
+                if (metros == 21) return (0.25, 1.80);
+                if (metros == 22) return (0.28, 1.80);
+                if (metros == 23) return (0.31, 1.80);
+                if (metros == 24) return (0.34, 1.80);
+                if (metros <= 30) return (0.37, 0.37);
+                if (metros == 31) return (0.42, 3.00);
+                if (metros == 32) return (0.48, 3.00);
+                if (metros == 33) return (0.54, 3.00);
+                if (metros == 34) return (0.64, 3.00);
+                if (metros <= 40) return (0.76, 3.00);
+                if (metros == 41) return (0.90, 4.00);
+                if (metros == 42) return (1.05, 4.00);
+                if (metros == 43) return (1.20, 4.00);
+                if (metros == 44) return (1.40, 4.00);
+                if (metros <= 50) return (1.65, 4.00);
+                if (metros <= 60) return (1.90, 7.50);
+                if (metros <= 70) return (2.20, 7.50);
+                if (metros <= 90) return (2.50, 7.50);
+                if (metros <= 100) return (2.90, 7.50);
+                if (metros <= 500) return (3.40, 10.00);
+                return (3.90, 20.00);
             }
 
-            isr = Math.Round(Math.Max(0, isr), 2);
-
-            double salarioNeto = Math.Round(salarioBruto - isss - afp - isr, 2);
-
-            return new DeduccionesResult(salarioBruto, isss, afp, isr, salarioNeto);
+            // No residencial
+            if (metros <= 5) return (3.760, 0.10);
+            if (metros <= 20) return (0.900, 5.00);
+            if (metros <= 30) return (1.200, 5.00);
+            if (metros <= 50) return (1.500, 7.50);
+            if (metros <= 60) return (1.875, 7.50);
+            if (metros <= 90) return (2.344, 7.50);
+            if (metros <= 100) return (2.930, 7.50);
+            if (metros <= 500) return (3.662, 10.00);
+            return (4.578, 20.00);
         }
 
         private void BtnCalculo_Click(object? sender, EventArgs e)
         {
-            ltsIssIsrAfp.Items.Clear();
-
-            
             string text = txtMonto.Text?.Trim() ?? string.Empty;
             if (string.IsNullOrEmpty(text))
             {
-                MessageBox.Show("Ingrese un monto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese el consumo en metros cúbicos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!double.TryParse(text, System.Globalization.NumberStyles.Any, CultureInfo.CurrentCulture, out double salario) &&
-                !double.TryParse(text, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out salario))
+            if (!int.TryParse(text, NumberStyles.Integer, CultureInfo.CurrentCulture, out int metros) &&
+                !int.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture, out metros))
             {
-                MessageBox.Show("Monto inválido. Use números válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Consumo inválido. Ingrese un número entero de metros cúbicos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var res = CalcularDeducciones(salario);
+            bool residencial = true;
+            if (cboTarifa.SelectedItem != null)
+            {
+                residencial = cboTarifa.SelectedItem.ToString() == "Residencial";
+            }
 
-            
-            var ci = CultureInfo.CurrentCulture;
-            ltsIssIsrAfp.Items.Add($"Salario bruto: {res.SalarioBruto.ToString("C2", ci)}");
-            ltsIssIsrAfp.Items.Add($"ISSS (3%): {res.ISSS.ToString("C2", ci)}");
-            ltsIssIsrAfp.Items.Add($"AFP (7.25%): {res.AFP.ToString("C2", ci)}");
-            double baseImponible = Math.Round(res.SalarioBruto - res.ISSS - res.AFP, 2);
-            ltsIssIsrAfp.Items.Add($"Base imponible: {baseImponible.ToString("C2", ci)}");
-            ltsIssIsrAfp.Items.Add($"ISR: {res.ISR.ToString("C2", ci)}");
-            ltsIssIsrAfp.Items.Add($"Salario neto: {res.SalarioNeto.ToString("C2", ci)}");
+            var (tarifaAcueducto, tarifaAlcantarillado) = GetTarifa(residencial, metros);
+            double total = Math.Round(metros * tarifaAcueducto + tarifaAlcantarillado, 2);
+
+            lblTotal.Text = $"Total a pagar: {total.ToString("C2", CultureInfo.CurrentCulture)}";
         }
 
         private void BtnLimpiar_Click(object? sender, EventArgs e)
         {
             txtMonto.Clear();
-            ltsIssIsrAfp.Items.Clear();
+            cboTarifa.SelectedIndex = -1;
+            lblTotal.Text = "Total a pagar: $0.00";
         }
     }
 }
