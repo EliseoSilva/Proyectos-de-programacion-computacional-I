@@ -31,9 +31,9 @@ namespace PrimeraAplicacion
         }
         private void mostrarDatos()
         {
-            if (dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0 && posicion >= 0 && posicion < dt.Rows.Count)
             {
-                txtCodigo.Text = dt.Rows[posicion]["codigo"].ToString();
+                txtCodigo.Text = dt.Rows[posicion]["código"].ToString();
                 txtNombre.Text = dt.Rows[posicion]["nombre"].ToString();
                 txtDireccion.Text = dt.Rows[posicion]["direccion"].ToString();
                 txtTelefono.Text = dt.Rows[posicion]["telefono"].ToString();
@@ -42,6 +42,7 @@ namespace PrimeraAplicacion
                 lblNavegacion.Text = (posicion + 1) + " de " + dt.Rows.Count;
             }
         }
+        
         private void activarDesactivarCtrls(Boolean estado)
         {
             grbDatos.Enabled = estado;
@@ -89,8 +90,11 @@ namespace PrimeraAplicacion
 
         private void btnAnteriorAlumno_Click(object sender, EventArgs e)
         {
-            posicion--;
-            mostrarDatos();
+            if (posicion > 0)
+            {
+                posicion--;
+                mostrarDatos();
+            }
         }
 
         private void btnPrimerAlumno_Click(object sender, EventArgs e)

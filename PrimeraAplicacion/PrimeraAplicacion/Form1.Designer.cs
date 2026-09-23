@@ -278,7 +278,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1175, 737);
+            ClientSize = new Size(1099, 737);
             Controls.Add(grbEdicion);
             Controls.Add(grbNavegacion);
             Controls.Add(grbDatos);
@@ -286,7 +286,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
-            Text = "SISTEMA DE TRIAGE";
+            Text = "SISTEMA ACADEMICO";
             Load += Form1_Load;
             grbDatos.ResumeLayout(false);
             grbDatos.PerformLayout();

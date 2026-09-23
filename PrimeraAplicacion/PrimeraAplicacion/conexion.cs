@@ -18,7 +18,7 @@ namespace PrimeraAplicacion
         public Conexion()
         {
             // Ajusta la ruta del archivo .mdf si es necesario en tu proyecto
-            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbacademica.mdf;Integrated Security=True";
+            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\Documents\Programacion I 2026\Formulario academica funcionando\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
             objConexion.ConnectionString = cadenaConexion;
             // Abrir la conexión sólo si no está abierta
             if (objConexion.State != ConnectionState.Open)
