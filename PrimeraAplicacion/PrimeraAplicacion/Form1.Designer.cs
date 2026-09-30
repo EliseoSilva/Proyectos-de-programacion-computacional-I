@@ -2,15 +2,8 @@
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +13,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             btnLimpiar = new Button();
@@ -47,15 +34,20 @@
             btnAnteriorAlumno = new Button();
             btnPrimerAlumno = new Button();
             grbEdicion = new GroupBox();
+            btnSalir = new Button();
+            btnEliminar = new Button();
             btnModificarAlumno = new Button();
             btnAgregarAlumno = new Button();
+            drgResultadoBusqueda = new DataGridView();
+            gbBuscar = new GroupBox();
+            txtBuscar = new TextBox();
+            lblBuscar = new Label();
             grbDatos.SuspendLayout();
             grbNavegacion.SuspendLayout();
             grbEdicion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)drgResultadoBusqueda).BeginInit();
+            gbBuscar.SuspendLayout();
             SuspendLayout();
-            // 
-            // btnLimpiar
-            // 
             btnLimpiar.BackColor = Color.White;
             btnLimpiar.Cursor = Cursors.Hand;
             btnLimpiar.Font = new Font("Times New Roman", 12F);
@@ -65,9 +57,6 @@
             btnLimpiar.TabIndex = 31;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // grbDatos
-            // 
             grbDatos.Controls.Add(txtEmail);
             grbDatos.Controls.Add(txtTelefono);
             grbDatos.Controls.Add(txtDireccion);
@@ -85,45 +74,27 @@
             grbDatos.TabIndex = 32;
             grbDatos.TabStop = false;
             grbDatos.Text = "DATOS";
-            // 
-            // txtEmail
-            // 
             txtEmail.Location = new Point(95, 508);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(204, 27);
             txtEmail.TabIndex = 9;
-            // 
-            // txtTelefono
-            // 
             txtTelefono.Location = new Point(112, 406);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(204, 27);
             txtTelefono.TabIndex = 8;
-            // 
-            // txtDireccion
-            // 
             txtDireccion.Location = new Point(127, 251);
             txtDireccion.Multiline = true;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(573, 121);
             txtDireccion.TabIndex = 7;
-            // 
-            // txtNombre
-            // 
             txtNombre.Location = new Point(112, 164);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(370, 27);
             txtNombre.TabIndex = 6;
-            // 
-            // txtCodigo
-            // 
             txtCodigo.Location = new Point(106, 53);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(204, 27);
             txtCodigo.TabIndex = 5;
-            // 
-            // lblEmail
-            // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmail.Location = new Point(26, 513);
@@ -131,9 +102,6 @@
             lblEmail.Size = new Size(63, 22);
             lblEmail.TabIndex = 4;
             lblEmail.Text = "Email:";
-            // 
-            // lblTelefono
-            // 
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelefono.Location = new Point(26, 408);
@@ -141,9 +109,6 @@
             lblTelefono.Size = new Size(86, 22);
             lblTelefono.TabIndex = 3;
             lblTelefono.Text = "Telefono:";
-            // 
-            // lblDireccion
-            // 
             lblDireccion.AutoSize = true;
             lblDireccion.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDireccion.Location = new Point(26, 251);
@@ -151,9 +116,6 @@
             lblDireccion.Size = new Size(95, 22);
             lblDireccion.TabIndex = 2;
             lblDireccion.Text = "Direccion:";
-            // 
-            // lblNombre
-            // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(26, 164);
@@ -161,9 +123,6 @@
             lblNombre.Size = new Size(80, 22);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre:";
-            // 
-            // lblCodigo
-            // 
             lblCodigo.AutoSize = true;
             lblCodigo.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCodigo.Location = new Point(26, 55);
@@ -242,19 +201,43 @@
             // 
             // grbEdicion
             // 
+            grbEdicion.Controls.Add(btnSalir);
+            grbEdicion.Controls.Add(btnEliminar);
             grbEdicion.Controls.Add(btnModificarAlumno);
             grbEdicion.Controls.Add(btnAgregarAlumno);
             grbEdicion.Location = new Point(592, 600);
             grbEdicion.Name = "grbEdicion";
-            grbEdicion.Size = new Size(464, 113);
+            grbEdicion.Size = new Size(827, 113);
             grbEdicion.TabIndex = 33;
             grbEdicion.TabStop = false;
             grbEdicion.Text = "Edicion";
             // 
+            // btnSalir
+            // 
+            btnSalir.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Location = new Point(640, 38);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(181, 60);
+            btnSalir.TabIndex = 7;
+            btnSalir.Text = "SALIR";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEliminar.Location = new Point(380, 41);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(181, 60);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
             // btnModificarAlumno
             // 
             btnModificarAlumno.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnModificarAlumno.Location = new Point(247, 38);
+            btnModificarAlumno.Location = new Point(193, 41);
             btnModificarAlumno.Name = "btnModificarAlumno";
             btnModificarAlumno.Size = new Size(181, 60);
             btnModificarAlumno.TabIndex = 5;
@@ -273,12 +256,51 @@
             btnAgregarAlumno.UseVisualStyleBackColor = true;
             btnAgregarAlumno.Click += btnAgregarAlumno_Click;
             // 
+            // drgResultadoBusqueda
+            // 
+            drgResultadoBusqueda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            drgResultadoBusqueda.Location = new Point(22, 117);
+            drgResultadoBusqueda.Name = "drgResultadoBusqueda";
+            drgResultadoBusqueda.RowHeadersWidth = 51;
+            drgResultadoBusqueda.Size = new Size(678, 439);
+            drgResultadoBusqueda.TabIndex = 34;
+            // 
+            // gbBuscar
+            // 
+            gbBuscar.Controls.Add(txtBuscar);
+            gbBuscar.Controls.Add(lblBuscar);
+            gbBuscar.Controls.Add(drgResultadoBusqueda);
+            gbBuscar.Location = new Point(785, 12);
+            gbBuscar.Name = "gbBuscar";
+            gbBuscar.Size = new Size(715, 577);
+            gbBuscar.TabIndex = 35;
+            gbBuscar.TabStop = false;
+            gbBuscar.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(90, 73);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(610, 27);
+            txtBuscar.TabIndex = 35;
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblBuscar.Location = new Point(22, 75);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(71, 22);
+            lblBuscar.TabIndex = 10;
+            lblBuscar.Text = "Buscar:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1099, 737);
+            ClientSize = new Size(1524, 737);
+            Controls.Add(gbBuscar);
             Controls.Add(grbEdicion);
             Controls.Add(grbNavegacion);
             Controls.Add(grbDatos);
@@ -293,10 +315,13 @@
             grbNavegacion.ResumeLayout(false);
             grbNavegacion.PerformLayout();
             grbEdicion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)drgResultadoBusqueda).EndInit();
+            gbBuscar.ResumeLayout(false);
+            gbBuscar.PerformLayout();
             ResumeLayout(false);
         }
 
-        #endregion
+
         private Button btnLimpiar;
         private GroupBox grbDatos;
         private Label lblCodigo;
@@ -318,5 +343,11 @@
         private Button btnPrimerAlumno;
         private Button btnModificarAlumno;
         private Button btnAgregarAlumno;
+        private Button btnEliminar;
+        private DataGridView drgResultadoBusqueda;
+        private GroupBox gbBuscar;
+        private TextBox txtBuscar;
+        private Label lblBuscar;
+        private Button btnSalir;
     }
 }

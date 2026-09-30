@@ -9,7 +9,6 @@ namespace PrimeraAplicacion
 {
     internal class Conexion
     {
-        // Conexión a la base de datos
         public SqlConnection objConexion = new SqlConnection();
         public SqlCommand objComando = new SqlCommand();
         public SqlDataAdapter objDataAdapter = new SqlDataAdapter();
@@ -17,17 +16,39 @@ namespace PrimeraAplicacion
 
         public Conexion()
         {
-            // Ajusta la ruta del archivo .mdf si es necesario en tu proyecto
-            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\Documents\Programacion I 2026\Formulario academica funcionando\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
+            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\Documents\Programacion I 2026\Funciones de sistema academico\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
             objConexion.ConnectionString = cadenaConexion;
-            // Abrir la conexión sólo si no está abierta
             if (objConexion.State != ConnectionState.Open)
             {
                 objConexion.Open();
             }
-            // Asociar el comando a la conexión
             objComando.Connection = objConexion;
         }
+
+        public void actualizarAlumno(int idAlumnos, string codigo, string nombre, string direccion, string telefono, string email)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE alumnos SET [código] = @codigo, nombre = @nombre, direccion = @direccion, telefono = @telefono, email = @email WHERE idAlumnos = @id";
+                    cmd.Parameters.AddWithValue("@codigo", codigo);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@direccion", direccion);
+                    cmd.Parameters.AddWithValue("@telefono", telefono);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@id", idAlumnos);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
         public DataSet obtenerDatos()
         {
@@ -40,6 +61,71 @@ namespace PrimeraAplicacion
             objDataAdapter.Fill(objDs, "alumnos");
 
             return objDs;
+        }
+
+        public void eliminarAlumno(int idAlumnos)
+        {
+            SqlTransaction? tx = null;
+            try
+            {
+                tx = objConexion.BeginTransaction();
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.Transaction = tx;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "DELETE FROM matricula WHERE idAlumno = @id";
+                    cmd.Parameters.AddWithValue("@id", idAlumnos);
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.Transaction = tx;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "DELETE FROM alumnos WHERE idAlumnos = @id";
+                    cmd.Parameters.AddWithValue("@id", idAlumnos);
+                    cmd.ExecuteNonQuery();
+                }
+
+                tx.Commit();
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    tx?.Rollback();
+                }
+                catch { }
+                throw;
+            }
+        }
+
+        public void insertarAlumno(string codigo, string nombre, string direccion, string telefono, string email)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO alumnos([código], nombre, direccion, telefono, email) VALUES(@código, @nombre, @direccion, @telefono, @email)";
+
+                    cmd.Parameters.AddWithValue("@código", codigo);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@direccion", direccion);
+                    cmd.Parameters.AddWithValue("@telefono", telefono);
+                    cmd.Parameters.AddWithValue("@email", email);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
