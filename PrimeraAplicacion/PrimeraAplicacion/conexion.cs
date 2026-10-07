@@ -16,7 +16,8 @@ namespace PrimeraAplicacion
 
         public Conexion()
         {
-            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\Documents\Programacion I 2026\Funciones de sistema academico\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
+            // Use |DataDirectory| so the location can be configured at runtime (we set it in Program.Main)
+            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\Documents\Programacion I 2026\clase 10 de octubre\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
             objConexion.ConnectionString = cadenaConexion;
             if (objConexion.State != ConnectionState.Open)
             {

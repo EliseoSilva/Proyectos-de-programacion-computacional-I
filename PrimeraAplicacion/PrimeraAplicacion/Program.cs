@@ -1,3 +1,5 @@
+using System;
+
 namespace PrimeraAplicacion
 {
     internal static class Program
@@ -5,8 +7,11 @@ namespace PrimeraAplicacion
         [STAThread]
         static void Main()
         {
+           
+            AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new frmPrincipal());
         }
     }
 }
