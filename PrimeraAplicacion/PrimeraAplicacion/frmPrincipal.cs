@@ -26,5 +26,12 @@ namespace PrimeraAplicacion
             objAlumnos.MdiParent = this;
             objAlumnos.Show();
         }
+
+        private void asignaturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMaterias objMaterias = new FrmMaterias();
+            objMaterias.MdiParent = this;
+            objMaterias.Show();
+        }
     }
 }

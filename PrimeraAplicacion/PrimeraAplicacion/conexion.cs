@@ -17,7 +17,7 @@ namespace PrimeraAplicacion
         public Conexion()
         {
             // Use |DataDirectory| so the location can be configured at runtime (we set it in Program.Main)
-            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\Documents\Programacion I 2026\clase 10 de octubre\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
+            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\source\repos\Progra I 2026\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
             objConexion.ConnectionString = cadenaConexion;
             if (objConexion.State != ConnectionState.Open)
             {
@@ -41,6 +41,90 @@ namespace PrimeraAplicacion
                     cmd.Parameters.AddWithValue("@telefono", telefono);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@id", idAlumnos);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataSet obtenerDatosMaterias()
+        {
+            objDs.Clear();
+            objComando.CommandText = "SELECT * FROM materias";
+            objComando.CommandType = CommandType.Text;
+
+            objDataAdapter.SelectCommand = objComando;
+            objDataAdapter.Fill(objDs, "materias");
+
+            return objDs;
+        }
+
+        public void insertarMateria(string codigo, string nombre, string uv)
+        {
+            try
+            {
+                int nextId = 0;
+                using (SqlCommand cmdMax = new SqlCommand("SELECT ISNULL(MAX(idMateria),0)+1 FROM Materias", objConexion))
+                {
+                    object? result = cmdMax.ExecuteScalar();
+                    nextId = (result == null || result == DBNull.Value) ? 1 : Convert.ToInt32(result);
+                }
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "INSERT INTO Materias(idMateria, [código], nombre, [UV]) VALUES(@id, @código, @nombre, @uv)";
+
+                    cmd.Parameters.AddWithValue("@id", nextId);
+                    cmd.Parameters.AddWithValue("@código", codigo);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@uv", uv);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void actualizarMateria(int idMateria, string codigo, string nombre, string uv)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "UPDATE materias SET [código] = @codigo, nombre = @nombre, [UV] = @uv WHERE idMateria = @id";
+                    cmd.Parameters.AddWithValue("@codigo", codigo);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@uv", uv);
+                    cmd.Parameters.AddWithValue("@id", idMateria);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void eliminarMateria(int idMateria)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = objConexion;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "DELETE FROM materias WHERE idMateria = @id";
+                    cmd.Parameters.AddWithValue("@id", idMateria);
                     cmd.ExecuteNonQuery();
                 }
             }

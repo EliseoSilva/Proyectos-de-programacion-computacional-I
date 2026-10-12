@@ -15,7 +15,6 @@
 
         private void InitializeComponent()
         {
-            btnLimpiar = new Button();
             grbDatos = new GroupBox();
             txtEmail = new TextBox();
             txtTelefono = new TextBox();
@@ -48,15 +47,9 @@
             ((System.ComponentModel.ISupportInitialize)drgResultadoBusqueda).BeginInit();
             gbBuscar.SuspendLayout();
             SuspendLayout();
-            btnLimpiar.BackColor = Color.White;
-            btnLimpiar.Cursor = Cursors.Hand;
-            btnLimpiar.Font = new Font("Times New Roman", 12F);
-            btnLimpiar.Location = new Point(238, 883);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(131, 29);
-            btnLimpiar.TabIndex = 31;
-            btnLimpiar.Text = "LIMPIAR";
-            btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // grbDatos
+            // 
             grbDatos.Controls.Add(txtEmail);
             grbDatos.Controls.Add(txtTelefono);
             grbDatos.Controls.Add(txtDireccion);
@@ -74,27 +67,45 @@
             grbDatos.TabIndex = 32;
             grbDatos.TabStop = false;
             grbDatos.Text = "DATOS";
+            // 
+            // txtEmail
+            // 
             txtEmail.Location = new Point(95, 508);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(204, 27);
             txtEmail.TabIndex = 9;
+            // 
+            // txtTelefono
+            // 
             txtTelefono.Location = new Point(112, 406);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(204, 27);
             txtTelefono.TabIndex = 8;
+            // 
+            // txtDireccion
+            // 
             txtDireccion.Location = new Point(127, 251);
             txtDireccion.Multiline = true;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(573, 121);
             txtDireccion.TabIndex = 7;
+            // 
+            // txtNombre
+            // 
             txtNombre.Location = new Point(112, 164);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(370, 27);
             txtNombre.TabIndex = 6;
+            // 
+            // txtCodigo
+            // 
             txtCodigo.Location = new Point(106, 53);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(204, 27);
             txtCodigo.TabIndex = 5;
+            // 
+            // lblEmail
+            // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmail.Location = new Point(26, 513);
@@ -102,6 +113,9 @@
             lblEmail.Size = new Size(63, 22);
             lblEmail.TabIndex = 4;
             lblEmail.Text = "Email:";
+            // 
+            // lblTelefono
+            // 
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTelefono.Location = new Point(26, 408);
@@ -109,6 +123,9 @@
             lblTelefono.Size = new Size(86, 22);
             lblTelefono.TabIndex = 3;
             lblTelefono.Text = "Telefono:";
+            // 
+            // lblDireccion
+            // 
             lblDireccion.AutoSize = true;
             lblDireccion.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDireccion.Location = new Point(26, 251);
@@ -116,6 +133,9 @@
             lblDireccion.Size = new Size(95, 22);
             lblDireccion.TabIndex = 2;
             lblDireccion.Text = "Direccion:";
+            // 
+            // lblNombre
+            // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(26, 164);
@@ -123,6 +143,9 @@
             lblNombre.Size = new Size(80, 22);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre:";
+            // 
+            // lblCodigo
+            // 
             lblCodigo.AutoSize = true;
             lblCodigo.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCodigo.Location = new Point(26, 55);
@@ -299,12 +322,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1524, 737);
+            ClientSize = new Size(1524, 721);
             Controls.Add(gbBuscar);
             Controls.Add(grbEdicion);
             Controls.Add(grbNavegacion);
             Controls.Add(grbDatos);
-            Controls.Add(btnLimpiar);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
@@ -320,9 +342,6 @@
             gbBuscar.PerformLayout();
             ResumeLayout(false);
         }
-
-
-        private Button btnLimpiar;
         private GroupBox grbDatos;
         private Label lblCodigo;
         private TextBox txtEmail;

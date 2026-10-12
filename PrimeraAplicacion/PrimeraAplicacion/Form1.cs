@@ -158,6 +158,7 @@ namespace PrimeraAplicacion
             ds = objConexion.obtenerDatos();
             dt = ds.Tables["alumnos"];
             dt.PrimaryKey = new DataColumn[] { dt.Columns["idAlumnos"] };
+            try { drgResultadoBusqueda.DataSource = dt.DefaultView; } catch { }
         }
         private void mostrarDatos()
         {
@@ -223,6 +224,9 @@ namespace PrimeraAplicacion
                         objConexion.insertarAlumno(txtCodigo.Text.Trim(), txtNombre.Text.Trim(), txtDireccion.Text.Trim(), txtTelefono.Text.Trim(), txtEmail.Text.Trim());
                         MessageBox.Show("Alumno agregado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         obtenerDatos();
+                        try { drgResultadoBusqueda.DataSource = dt.DefaultView; } catch { }
+                        AplicarFiltroBusqueda(txtBuscar.Text);
+                        btnEliminar.Enabled = true;
                         posicion = dt.Rows.Count - 1;
                         mostrarDatos();
                     }
@@ -247,6 +251,9 @@ namespace PrimeraAplicacion
                         objConexion.actualizarAlumno(id, txtCodigo.Text.Trim(), txtNombre.Text.Trim(), txtDireccion.Text.Trim(), txtTelefono.Text.Trim(), txtEmail.Text.Trim());
                         MessageBox.Show("Alumno modificado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         obtenerDatos();
+                        try { drgResultadoBusqueda.DataSource = dt.DefaultView; } catch { }
+                        AplicarFiltroBusqueda(txtBuscar.Text);
+                        btnEliminar.Enabled = true;
                         mostrarDatos();
                     }
                     catch (Exception ex)

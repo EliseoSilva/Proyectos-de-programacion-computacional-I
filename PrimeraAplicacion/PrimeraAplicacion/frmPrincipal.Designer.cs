@@ -91,6 +91,7 @@
             asignaturasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
             asignaturasToolStripMenuItem.Size = new Size(236, 26);
             asignaturasToolStripMenuItem.Text = "Asignaturas";
+            asignaturasToolStripMenuItem.Click += asignaturasToolStripMenuItem_Click;
             // 
             // periodosToolStripMenuItem
             // 
@@ -103,7 +104,7 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 6);
+            toolStripMenuItem1.Size = new Size(233, 6);
             // 
             // calificacionesToolStripMenuItem
             // 
