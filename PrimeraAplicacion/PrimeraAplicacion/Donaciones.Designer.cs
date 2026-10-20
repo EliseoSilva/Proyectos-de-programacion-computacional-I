@@ -52,6 +52,7 @@
             txtDescripcion = new TextBox();
             grbDonaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDonaciones).BeginInit();
+            SuspendLayout();
             // 
             // lblTitulo
             // 
@@ -112,7 +113,7 @@
             // 
             // dgvDonaciones
             // 
-            dgvDonaciones.BackgroundColor = SystemColors.ControlLight;
+            dgvDonaciones.BackgroundColor = Color.WhiteSmoke;
             dgvDonaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDonaciones.Location = new Point(26, 439);
             dgvDonaciones.Name = "dgvDonaciones";
@@ -289,7 +290,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 255, 192);
+            BackColor = Color.White;
             ClientSize = new Size(1255, 803);
             Controls.Add(grbDonaciones);
             Name = "frmComunidadConecta";
