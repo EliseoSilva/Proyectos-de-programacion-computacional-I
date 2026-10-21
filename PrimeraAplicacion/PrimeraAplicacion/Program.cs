@@ -11,7 +11,7 @@ namespace PrimeraAplicacion
             AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmPrincipal());
+            Application.Run(new Login());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace PrimeraAplicacion
         public Conexion()
         {
             // Use |DataDirectory| so the location can be configured at runtime (we set it in Program.Main)
-            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\source\repos\Progra I 2026\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
+            string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\elise\source\repos\Proyectos-de-programacion-computacional-I\PrimeraAplicacion\PrimeraAplicacion\db academica.mdf"";Integrated Security=True";
             objConexion.ConnectionString = cadenaConexion;
             if (objConexion.State != ConnectionState.Open)
             {
@@ -212,5 +212,137 @@ namespace PrimeraAplicacion
                 throw;
             }
         }
+
+        // Ejecuta instrucciones SQL de INSERT, UPDATE y DELETE.
+        public int procesar(string sentencia, params SqlParameter[] parametros)
+        {
+            using (SqlCommand cmd = new SqlCommand(sentencia, objConexion))
+            {
+                cmd.CommandType = CommandType.Text;
+
+                if (parametros != null)
+                {
+                    cmd.Parameters.AddRange(parametros);
+                }
+
+                if (objConexion.State != ConnectionState.Open)
+                {
+                    objConexion.Open();
+                }
+
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Crea el DataSet para la tabla de usuarios.
+        public DataSet crearDs()
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT * FROM usuarios_usss057823", objConexion))
+            {
+                adapter.Fill(ds, "usuarios_usss057823");
+            }
+
+            return ds;
+        }
+
+        // Mantenimiento: AGREGAR, MODIFICAR y ELIMINAR usuarios.
+        public int mantenimiento_usuarios_usss057823(
+            string accion,
+            int idUsuario,
+            string usuario,
+            string clave,
+            string nombre,
+            string direccion,
+            string telefono)
+        {
+            string sql;
+
+            switch (accion.Trim().ToUpper())
+            {
+                case "AGREGAR":
+                    sql = @"INSERT INTO usuarios_usss057823
+                            (usuario, clave, nombre, [direccion], telefono)
+                            VALUES
+                            (@usuario, @clave, @nombre, @direccion, @telefono)";
+                    break;
+
+                case "MODIFICAR":
+                    sql = @"UPDATE usuarios_usss057823
+                            SET usuario = @usuario,
+                                clave = @clave,
+                                nombre = @nombre,
+                                [direccion] = @direccion,
+                                telefono = @telefono
+                            WHERE idUsuario = @idUsuario";
+                    break;
+
+                case "ELIMINAR":
+                    sql = @"DELETE FROM usuarios_usss057823
+                            WHERE idUsuario = @idUsuario";
+                    break;
+
+                default:
+                    throw new ArgumentException(
+                        "Acción no válida. Use AGREGAR, MODIFICAR o ELIMINAR.");
+            }
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+
+            if (accion.Trim().ToUpper() != "ELIMINAR")
+            {
+                parametros.Add(new SqlParameter("@usuario", SqlDbType.VarChar, 35)
+                { Value = usuario });
+
+                parametros.Add(new SqlParameter("@clave", SqlDbType.VarChar, 35)
+                { Value = clave });
+
+                parametros.Add(new SqlParameter("@nombre", SqlDbType.VarChar, 65)
+                { Value = nombre });
+
+                parametros.Add(new SqlParameter("@direccion", SqlDbType.VarChar, 85)
+                { Value = direccion });
+
+                parametros.Add(new SqlParameter("@telefono", SqlDbType.VarChar, 9)
+                { Value = telefono });
+            }
+
+            if (accion.Trim().ToUpper() != "AGREGAR")
+            {
+                parametros.Add(new SqlParameter("@idUsuario", SqlDbType.Int)
+                { Value = idUsuario });
+            }
+
+            return procesar(sql, parametros.ToArray());
+        }
+
+        // Comprueba las credenciales para el formulario Login.
+        public bool validarLogin(string usuario, string clave)
+        {
+            const string sql = @"
+                SELECT COUNT(*)
+                FROM usuarios_usss057823
+                WHERE usuario = @usuario AND clave = @clave";
+
+            using (SqlCommand cmd = new SqlCommand(sql, objConexion))
+            {
+                cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 35)
+                    .Value = usuario;
+
+                cmd.Parameters.Add("@clave", SqlDbType.VarChar, 35)
+                    .Value = clave;
+
+                if (objConexion.State != ConnectionState.Open)
+                {
+                    objConexion.Open();
+                }
+
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+            }
+        }
+
     }
+
 }
