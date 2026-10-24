@@ -1,0 +1,232 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas | Comunidad Conecta</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/inicio.css">
+    <link rel="stylesheet" href="/css/modulos.css">
+    <link rel="stylesheet" href="/css/mascotas.css">
+</head>
+<body class="pagina-inicio">
+
+    <aside class="barra-lateral">
+        <a href="/paginas/inicio.html" class="marca">
+            <span class="marca-icono">CC</span>
+            <span class="marca-texto">
+                <strong>Comunidad</strong>
+                <strong>Conecta<span class="punto">.</span></strong>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENÚ PRINCIPAL</p>
+
+        <nav class="navegacion">
+            <a href="/paginas/inicio.html" class="enlace-menu">
+                <span>⌂</span> Inicio
+            </a>
+            <a href="/paginas/donaciones.html" class="enlace-menu">
+                <span>♡</span> Donaciones
+            </a>
+            <a href="/paginas/solicitudes.html" class="enlace-menu">
+                <span>▤</span> Solicitudes
+            </a>
+            <a href="/paginas/mascotas.html" class="enlace-menu activo">
+                <span>♧</span> Mascotas
+            </a>
+            <a href="/paginas/usuarios.html" class="enlace-menu">
+                <span>♙</span> Usuarios
+            </a>
+        </nav>
+
+        <div class="lateral-inferior">
+            <div class="ayuda-card">
+                <strong>¿Necesitas ayuda?</strong>
+                <p>Estamos aquí para apoyarte.</p>
+            </div>
+            <a href="/" class="enlace-menu enlace-salir">
+                <span>↪</span> Cerrar sesión
+            </a>
+        </div>
+    </aside>
+
+    <main class="zona-principal">
+        <header class="barra-superior">
+            <div>
+                <p class="miga">COMUNIDAD / GESTIÓN</p>
+                <h1>Mascotas</h1>
+            </div>
+
+            <div class="perfil">
+                <div class="avatar">CC</div>
+                <div class="perfil-info">
+                    <strong>Mi comunidad</strong>
+                    <span>Gestión de mascotas</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="contenido-inicio">
+
+            <div class="modulo-intro">
+                <div>
+                    <h2>Comunidad animal</h2>
+                    <p>Administra reportes de mascotas perdidas, encontradas y en adopción.</p>
+                </div>
+
+                <button class="btn-crear" id="btnNuevaMascota">
+                    <span>+</span> Nuevo reporte
+                </button>
+            </div>
+
+            <section class="resumen-donaciones">
+                <article class="resumen-card">
+                    <span>Total de reportes</span>
+                    <strong id="totalMascotas">0</strong>
+                </article>
+                <article class="resumen-card">
+                    <span>Mascotas perdidas</span>
+                    <strong id="totalPerdidas">0</strong>
+                </article>
+                <article class="resumen-card">
+                    <span>En adopción</span>
+                    <strong id="totalAdopcion">0</strong>
+                </article>
+            </section>
+
+            <section class="mascotas-herramientas">
+                <div class="busqueda">
+                    <span aria-hidden="true">⌕</span>
+                    <input type="search" id="buscarMascota"
+                           placeholder="Buscar por nombre, especie o ubicación..."
+                           aria-label="Buscar mascotas">
+                </div>
+
+                <select id="filtroEstado" aria-label="Filtrar por estado">
+                    <option value="">Todos los reportes</option>
+                    <option value="Perdida">Perdidas</option>
+                    <option value="Encontrada">Encontradas</option>
+                    <option value="En adopción">En adopción</option>
+                </select>
+
+                <select id="filtroEspecie" aria-label="Filtrar por especie">
+                    <option value="">Todas las especies</option>
+                    <option value="Perro">Perros</option>
+                    <option value="Gato">Gatos</option>
+                    <option value="Otro">Otros</option>
+                </select>
+            </section>
+
+            <div class="galeria-cabecera">
+                <h2>Reportes de la comunidad</h2>
+                <span id="contadorMascotas">0 resultados</span>
+            </div>
+
+            <section class="galeria-mascotas" id="galeriaMascotas"></section>
+
+            <footer class="pie-inicio">
+                Comunidad Conecta © 2026 · Unidos para ayudar
+            </footer>
+        </section>
+    </main>
+
+    <dialog id="modalMascota" class="modal">
+        <form id="formMascota">
+            <div class="modal-cabecera">
+                <div>
+                    <p class="miga">GESTIÓN DE REGISTROS</p>
+                    <h2 id="tituloModal">Nuevo reporte</h2>
+                </div>
+                <button type="button" class="btn-cerrar"
+                        id="btnCerrar" aria-label="Cerrar">
+                    ×
+                </button>
+            </div>
+
+            <input type="hidden" id="mascotaId">
+
+            <div class="form-grid">
+                <div class="campo">
+                    <label for="nombreMascota">Nombre</label>
+                    <input id="nombreMascota" maxlength="80" required>
+                </div>
+
+                <div class="campo">
+                    <label for="especieMascota">Especie</label>
+                    <select id="especieMascota" required>
+                        <option value="">Selecciona</option>
+                        <option>Perro</option>
+                        <option>Gato</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="estadoMascota">Tipo de reporte</label>
+                    <select id="estadoMascota" required>
+                        <option>Perdida</option>
+                        <option>Encontrada</option>
+                        <option>En adopción</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="fechaMascota">Fecha del reporte</label>
+                    <input type="date" id="fechaMascota" required>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="ubicacionMascota">Ubicación</label>
+                    <input id="ubicacionMascota" maxlength="150" required>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="contactoMascota">Contacto</label>
+                    <input id="contactoMascota" maxlength="100" required>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="imagenMascota">URL de la fotografía (opcional)</label>
+                    <input type="url" id="imagenMascota"
+                           placeholder="https://ejemplo.com/mascota.jpg">
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="descripcionMascota">Descripción</label>
+                    <textarea id="descripcionMascota" rows="3"
+                              maxlength="1000" required></textarea>
+                </div>
+            </div>
+
+            <p id="mensajeMascota" class="mensaje" role="status"></p>
+
+            <div class="modal-acciones">
+                <button type="button" class="btn-cancelar"
+                        id="btnCancelar">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-crear">Guardar reporte</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="modalDetalles" class="modal">
+        <div class="modal-cabecera">
+            <div>
+                <p class="miga">DETALLES DEL REPORTE</p>
+                <h2 id="detalleTitulo">Mascota</h2>
+            </div>
+            <button type="button" class="btn-cerrar"
+                    id="btnCerrarDetalle" aria-label="Cerrar">
+                ×
+            </button>
+        </div>
+        <div id="contenidoDetalles" class="detalles-contenido"></div>
+    </dialog>
+
+    <script src="/js/mascotas.js"></script>
+</body>
+</html>

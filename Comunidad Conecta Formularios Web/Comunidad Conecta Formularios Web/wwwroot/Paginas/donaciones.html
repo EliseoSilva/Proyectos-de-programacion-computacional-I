@@ -1,0 +1,248 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donaciones | Comunidad Conecta</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/inicio.css">
+    <link rel="stylesheet" href="/css/modulos.css">
+</head>
+<body class="pagina-inicio">
+
+    <aside class="barra-lateral">
+        <a href="/paginas/inicio.html" class="marca">
+            <span class="marca-icono">CC</span>
+            <span class="marca-texto">
+                <strong>Comunidad</strong>
+                <strong>Conecta<span class="punto">.</span></strong>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENÚ PRINCIPAL</p>
+
+        <nav class="navegacion">
+            <a href="/paginas/inicio.html" class="enlace-menu">
+                <span>⌂</span> Inicio
+            </a>
+            <a href="/paginas/donaciones.html" class="enlace-menu activo">
+                <span>♡</span> Donaciones
+            </a>
+            <a href="/paginas/solicitudes.html" class="enlace-menu">
+                <span>▤</span> Solicitudes
+            </a>
+            <a href="/paginas/mascotas.html" class="enlace-menu">
+                <span>♧</span> Mascotas
+            </a>
+            <a href="/paginas/usuarios.html" class="enlace-menu">
+                <span>♙</span> Usuarios
+            </a>
+        </nav>
+
+        <div class="lateral-inferior">
+            <div class="ayuda-card">
+                <strong>¿Necesitas ayuda?</strong>
+                <p>Estamos aquí para apoyarte.</p>
+            </div>
+            <a href="/" class="enlace-menu enlace-salir">
+                <span>↪</span> Cerrar sesión
+            </a>
+        </div>
+    </aside>
+
+    <main class="zona-principal">
+
+        <header class="barra-superior">
+            <div>
+                <p class="miga">COMUNIDAD / GESTIÓN</p>
+                <h1>Donaciones</h1>
+            </div>
+
+            <div class="perfil">
+                <div class="avatar">CC</div>
+                <div class="perfil-info">
+                    <strong>Mi comunidad</strong>
+                    <span>Gestión de donaciones</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="contenido-inicio">
+
+            <div class="modulo-intro">
+                <div>
+                    <h2>Administración de donaciones</h2>
+                    <p>Consulta y organiza los recursos compartidos por la comunidad.</p>
+                </div>
+
+                <button class="btn-crear" id="btnNueva">
+                    <span>+</span> Nueva donación
+                </button>
+            </div>
+
+            <section class="resumen-donaciones">
+                <article class="resumen-card">
+                    <span>Total de registros</span>
+                    <strong id="totalDonaciones">0</strong>
+                </article>
+                <article class="resumen-card">
+                    <span>Disponibles</span>
+                    <strong id="totalDisponibles">0</strong>
+                </article>
+                <article class="resumen-card">
+                    <span>Entregadas</span>
+                    <strong id="totalEntregadas">0</strong>
+                </article>
+            </section>
+
+            <section class="tabla-contenedor">
+
+                <div class="tabla-cabecera">
+                    <div>
+                        <h3>Listado de donaciones</h3>
+                        <p>Busca y administra los registros.</p>
+                    </div>
+                </div>
+
+                <div class="filtros">
+                    <div class="busqueda">
+                        <span aria-hidden="true">⌕</span>
+                        <input type="search"
+                               id="buscarDonacion"
+                               placeholder="Buscar por nombre, categoría o donante..."
+                               aria-label="Buscar donaciones">
+                    </div>
+
+                    <select id="filtroEstado" aria-label="Filtrar por estado">
+                        <option value="">Todos los estados</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Entregada">Entregada</option>
+                        <option value="En proceso">En proceso</option>
+                    </select>
+                </div>
+
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Donación</th>
+                                <th>Categoría</th>
+                                <th>Donante</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDonaciones"></tbody>
+                    </table>
+                </div>
+
+                <div class="tabla-pie">
+                    <span id="textoResultados">Mostrando 0 registros</span>
+                    <button type="button" id="btnLimpiarFiltros">
+                        Limpiar filtros
+                    </button>
+                </div>
+            </section>
+
+            <footer class="pie-inicio">
+                Comunidad Conecta © 2026 · Unidos para ayudar
+            </footer>
+        </section>
+    </main>
+
+    <!-- Ventana para crear o editar -->
+    <dialog id="modalDonacion" class="modal">
+        <form id="formDonacion">
+            <div class="modal-cabecera">
+                <div>
+                    <p class="miga">GESTIÓN DE REGISTROS</p>
+                    <h2 id="tituloModal">Nueva donación</h2>
+                </div>
+                <button type="button" class="btn-cerrar"
+                        id="btnCerrar" aria-label="Cerrar">
+                    ×
+                </button>
+            </div>
+
+            <input type="hidden" id="donacionId">
+
+            <div class="form-grid">
+                <div class="campo">
+                    <label for="nombreDonacion">Nombre</label>
+                    <input id="nombreDonacion" maxlength="100" required>
+                </div>
+
+                <div class="campo">
+                    <label for="categoriaDonacion">Categoría</label>
+                    <select id="categoriaDonacion" required>
+                        <option value="">Selecciona una categoría</option>
+                        <option>Alimentos</option>
+                        <option>Ropa</option>
+                        <option>Medicamentos</option>
+                        <option>Material escolar</option>
+                        <option>Otros</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="donante">Nombre del donante</label>
+                    <input id="donante" maxlength="100" required>
+                </div>
+
+                <div class="campo">
+                    <label for="fechaDonacion">Fecha</label>
+                    <input type="date" id="fechaDonacion" required>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="descripcionDonacion">Descripción</label>
+                    <textarea id="descripcionDonacion" rows="3"
+                              maxlength="500"
+                              placeholder="Detalles de la donación..."></textarea>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="estadoDonacion">Estado</label>
+                    <select id="estadoDonacion" required>
+                        <option>Disponible</option>
+                        <option>En proceso</option>
+                        <option>Entregada</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="mensajeDonacion" class="mensaje" role="status"></p>
+
+            <div class="modal-acciones">
+                <button type="button" class="btn-cancelar"
+                        id="btnCancelar">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-crear">
+                    Guardar donación
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Ventana de detalles -->
+    <dialog id="modalDetalles" class="modal">
+        <div class="modal-cabecera">
+            <div>
+                <p class="miga">DETALLES DEL REGISTRO</p>
+                <h2 id="detalleNombre">Donación</h2>
+            </div>
+            <button type="button" class="btn-cerrar"
+                    id="btnCerrarDetalle" aria-label="Cerrar">
+                ×
+            </button>
+        </div>
+        <div id="contenidoDetalles" class="detalles-contenido"></div>
+    </dialog>
+
+    <script src="/js/donaciones.js"></script>
+</body>
+</html>

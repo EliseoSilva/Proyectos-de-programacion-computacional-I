@@ -1,0 +1,261 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes de ayuda | Comunidad Conecta</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/inicio.css">
+    <link rel="stylesheet" href="/css/modulos.css">
+    <link rel="stylesheet" href="/css/solicitudes.css">
+</head>
+<body class="pagina-inicio">
+
+    <aside class="barra-lateral">
+        <a href="/paginas/inicio.html" class="marca">
+            <span class="marca-icono">CC</span>
+            <span class="marca-texto">
+                <strong>Comunidad</strong>
+                <strong>Conecta<span class="punto">.</span></strong>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENÚ PRINCIPAL</p>
+
+        <nav class="navegacion">
+            <a href="/paginas/inicio.html" class="enlace-menu">
+                <span>⌂</span> Inicio
+            </a>
+            <a href="/paginas/donaciones.html" class="enlace-menu">
+                <span>♡</span> Donaciones
+            </a>
+            <a href="/paginas/solicitudes.html" class="enlace-menu activo">
+                <span>▤</span> Solicitudes
+            </a>
+            <a href="/paginas/mascotas.html" class="enlace-menu">
+                <span>♧</span> Mascotas
+            </a>
+            <a href="/paginas/usuarios.html" class="enlace-menu">
+                <span>♙</span> Usuarios
+            </a>
+        </nav>
+
+        <div class="lateral-inferior">
+            <div class="ayuda-card">
+                <strong>¿Necesitas ayuda?</strong>
+                <p>Estamos aquí para apoyarte.</p>
+            </div>
+            <a href="/" class="enlace-menu enlace-salir">
+                <span>↪</span> Cerrar sesión
+            </a>
+        </div>
+    </aside>
+
+    <main class="zona-principal">
+        <header class="barra-superior">
+            <div>
+                <p class="miga">COMUNIDAD / GESTIÓN</p>
+                <h1>Solicitudes de ayuda</h1>
+            </div>
+
+            <div class="perfil">
+                <div class="avatar">CC</div>
+                <div class="perfil-info">
+                    <strong>Mi comunidad</strong>
+                    <span>Gestión de solicitudes</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="contenido-inicio">
+
+            <div class="modulo-intro">
+                <div>
+                    <h2>Administración de solicitudes</h2>
+                    <p>Organiza las necesidades y da seguimiento a cada solicitud.</p>
+                </div>
+
+                <button class="btn-crear" id="btnNuevaSolicitud">
+                    <span>+</span> Nueva solicitud
+                </button>
+            </div>
+
+            <section class="resumen-donaciones">
+                <article class="resumen-card">
+                    <span>Total de solicitudes</span>
+                    <strong id="totalSolicitudes">0</strong>
+                </article>
+                <article class="resumen-card">
+                    <span>Pendientes</span>
+                    <strong id="totalPendientes">0</strong>
+                </article>
+                <article class="resumen-card">
+                    <span>Atendidas</span>
+                    <strong id="totalAtendidas">0</strong>
+                </article>
+            </section>
+
+            <section class="tabla-contenedor">
+                <div class="tabla-cabecera">
+                    <h3>Listado de solicitudes</h3>
+                    <p>Busca, filtra y administra las solicitudes comunitarias.</p>
+                </div>
+
+                <div class="filtros">
+                    <div class="busqueda">
+                        <span aria-hidden="true">⌕</span>
+                        <input type="search" id="buscarSolicitud"
+                               placeholder="Buscar por título, solicitante o categoría..."
+                               aria-label="Buscar solicitudes">
+                    </div>
+
+                    <select id="filtroEstado" aria-label="Filtrar por estado">
+                        <option value="">Todos los estados</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En revisión">En revisión</option>
+                        <option value="Atendida">Atendida</option>
+                        <option value="Rechazada">Rechazada</option>
+                    </select>
+
+                    <select id="filtroPrioridad" aria-label="Filtrar por prioridad">
+                        <option value="">Todas las prioridades</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select>
+                </div>
+
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Solicitud</th>
+                                <th>Solicitante</th>
+                                <th>Categoría</th>
+                                <th>Prioridad</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaSolicitudes"></tbody>
+                    </table>
+                </div>
+
+                <div class="tabla-pie">
+                    <span id="textoResultados">Mostrando 0 registros</span>
+                    <button type="button" id="btnLimpiarFiltros">
+                        Limpiar filtros
+                    </button>
+                </div>
+            </section>
+
+            <footer class="pie-inicio">
+                Comunidad Conecta © 2026 · Unidos para ayudar
+            </footer>
+        </section>
+    </main>
+
+    <dialog id="modalSolicitud" class="modal">
+        <form id="formSolicitud">
+            <div class="modal-cabecera">
+                <div>
+                    <p class="miga">GESTIÓN DE REGISTROS</p>
+                    <h2 id="tituloModal">Nueva solicitud</h2>
+                </div>
+                <button type="button" class="btn-cerrar"
+                        id="btnCerrar" aria-label="Cerrar">
+                    ×
+                </button>
+            </div>
+
+            <input type="hidden" id="solicitudId">
+
+            <div class="form-grid">
+                <div class="campo">
+                    <label for="tituloSolicitud">Título</label>
+                    <input id="tituloSolicitud" maxlength="120" required>
+                </div>
+
+                <div class="campo">
+                    <label for="solicitante">Solicitante</label>
+                    <input id="solicitante" maxlength="100" required>
+                </div>
+
+                <div class="campo">
+                    <label for="categoriaSolicitud">Categoría</label>
+                    <select id="categoriaSolicitud" required>
+                        <option value="">Selecciona una categoría</option>
+                        <option>Alimentos</option>
+                        <option>Salud</option>
+                        <option>Educación</option>
+                        <option>Vivienda</option>
+                        <option>Ropa</option>
+                        <option>Otros</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="prioridadSolicitud">Prioridad</label>
+                    <select id="prioridadSolicitud" required>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Baja">Baja</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="fechaSolicitud">Fecha</label>
+                    <input type="date" id="fechaSolicitud" required>
+                </div>
+
+                <div class="campo">
+                    <label for="estadoSolicitud">Estado</label>
+                    <select id="estadoSolicitud" required>
+                        <option>Pendiente</option>
+                        <option>En revisión</option>
+                        <option>Atendida</option>
+                        <option>Rechazada</option>
+                    </select>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="descripcionSolicitud">Descripción de la necesidad</label>
+                    <textarea id="descripcionSolicitud" rows="4"
+                              maxlength="1000" required></textarea>
+                </div>
+            </div>
+
+            <p id="mensajeSolicitud" class="mensaje" role="status"></p>
+
+            <div class="modal-acciones">
+                <button type="button" class="btn-cancelar"
+                        id="btnCancelar">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-crear">
+                    Guardar solicitud
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="modalDetalles" class="modal">
+        <div class="modal-cabecera">
+            <div>
+                <p class="miga">DETALLES DEL REGISTRO</p>
+                <h2 id="detalleTitulo">Solicitud</h2>
+            </div>
+            <button type="button" class="btn-cerrar"
+                    id="btnCerrarDetalle" aria-label="Cerrar">
+                ×
+            </button>
+        </div>
+        <div id="contenidoDetalles" class="detalles-contenido"></div>
+    </dialog>
+
+    <script src="/js/solicitudes.js"></script>
+</body>
+</html>

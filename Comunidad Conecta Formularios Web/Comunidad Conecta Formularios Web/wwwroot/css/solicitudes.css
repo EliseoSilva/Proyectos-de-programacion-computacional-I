@@ -1,0 +1,29 @@
+﻿
+.prioridad {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.prioridad-alta {
+    background: #fde8e8;
+    color: #b52c2c;
+}
+
+.prioridad-media {
+    background: #fff0d9;
+    color: #95651b;
+}
+
+.prioridad-baja {
+    background: #e5effc;
+    color: #2868a5;
+}
+
+@media (max-width: 760px) {
+    .filtros select {
+        width: 100%;
+    }
+}

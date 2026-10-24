@@ -1,0 +1,72 @@
+﻿
+.registro-contenedor {
+    min-height: 760px;
+}
+
+.registro-formulario {
+    padding: 35px 45px;
+}
+
+    .registro-formulario .formulario-contenido {
+        max-width: 390px;
+    }
+
+    .registro-formulario .bienvenida-icono {
+        margin-bottom: 15px;
+    }
+
+    .registro-formulario .subtitulo {
+        margin-bottom: 22px;
+    }
+
+.registro-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.registro-formulario .campo {
+    margin-bottom: 16px;
+}
+
+    .registro-formulario .campo input {
+        height: 44px;
+    }
+
+.registro-enlace {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 13px;
+    color: var(--texto-secundario);
+}
+
+    .registro-enlace a {
+        color: var(--azul);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .registro-enlace a:hover {
+            text-decoration: underline;
+        }
+
+@media (max-width: 850px) {
+    .registro-contenedor {
+        min-height: auto;
+    }
+
+    .registro-formulario {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 420px) {
+    .registro-campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .registro-formulario {
+        padding: 28px 22px;
+    }
+}

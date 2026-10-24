@@ -1,0 +1,187 @@
+﻿
+.mascotas-herramientas {
+    display: flex;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+    .mascotas-herramientas .busqueda {
+        flex: 1;
+    }
+
+    .mascotas-herramientas select {
+        width: 175px;
+        min-width: 0;
+        padding: 10px;
+        border: 1px solid #dfe6ef;
+        border-radius: 8px;
+        background: white;
+        color: #26364b;
+        font-size: 12px;
+    }
+
+.galeria-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+    .galeria-cabecera h2 {
+        font-size: 18px;
+        color: #172d50;
+    }
+
+    .galeria-cabecera > span {
+        color: #78869a;
+        font-size: 12px;
+    }
+
+.galeria-mascotas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.mascota-card {
+    min-width: 0;
+    background: white;
+    border: 1px solid #e3e9f1;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .mascota-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(23, 45, 80, 0.08);
+    }
+
+.mascota-foto {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    background: #eaf1fa;
+}
+
+.mascota-sin-foto {
+    height: 190px;
+    display: grid;
+    place-items: center;
+    background: #eaf1fa;
+    color: #2868a5;
+    font-size: 54px;
+}
+
+.mascota-cuerpo {
+    padding: 18px;
+}
+
+.mascota-titulo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+    .mascota-titulo h3 {
+        color: #172d50;
+        font-size: 17px;
+        overflow-wrap: anywhere;
+    }
+
+.mascota-especie {
+    margin-top: 5px;
+    color: #78869a;
+    font-size: 11px;
+}
+
+.mascota-descripcion {
+    min-height: 40px;
+    margin: 13px 0;
+    color: #667589;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.mascota-ubicacion {
+    margin-bottom: 15px;
+    color: #526176;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.mascota-acciones {
+    display: flex;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid #edf0f5;
+}
+
+    .mascota-acciones button {
+        flex: 1;
+        padding: 9px 7px;
+        border: 1px solid #dfe6ef;
+        border-radius: 7px;
+        background: white;
+        color: #2868a5;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+        .mascota-acciones button:hover {
+            background: #eaf1fa;
+        }
+
+    .mascota-acciones .accion-eliminar {
+        flex: 0 0 36px;
+        color: #bd3434;
+    }
+
+        .mascota-acciones .accion-eliminar:hover {
+            background: #fff0f0;
+        }
+
+.mascota-vacio {
+    grid-column: 1 / -1;
+    padding: 45px 20px;
+    text-align: center;
+    background: white;
+    border: 1px solid #e3e9f1;
+    border-radius: 12px;
+    color: #78869a;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 1100px) {
+    .galeria-mascotas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .mascotas-herramientas {
+        flex-direction: column;
+    }
+
+        .mascotas-herramientas select {
+            width: 100%;
+        }
+}
+
+@media (max-width: 480px) {
+    .galeria-mascotas {
+        grid-template-columns: 1fr;
+    }
+
+    .mascota-foto,
+    .mascota-sin-foto {
+        height: 220px;
+    }
+}

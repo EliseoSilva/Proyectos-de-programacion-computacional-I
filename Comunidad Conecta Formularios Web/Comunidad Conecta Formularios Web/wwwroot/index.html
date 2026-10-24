@@ -1,0 +1,129 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#172d50">
+
+    <title>Iniciar sesión | Comunidad Conecta</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body class="pagina-acceso">
+
+    <main class="acceso-contenedor">
+
+        <section class="acceso-presentacion">
+            <a class="marca" href="/" aria-label="Comunidad Conecta">
+                <span class="marca-icono">CC</span>
+                <span class="marca-texto">
+                    <strong>Comunidad</strong>
+                    <strong>Conecta<span class="punto">.</span></strong>
+                </span>
+            </a>
+
+            <div class="presentacion-contenido">
+                <span class="etiqueta">JUNTOS SOMOS COMUNIDAD</span>
+
+                <h1>
+                    Pequeñas acciones.<br>
+                    <span>Grandes cambios.</span>
+                </h1>
+
+                <p>
+                    Un espacio para compartir, ayudar y conectar
+                    a las personas que hacen de nuestra comunidad
+                    un lugar mejor.
+                </p>
+
+                <div class="presentacion-dato">
+                    <span class="dato-icono">♡</span>
+                    <div>
+                        <strong>Conectar para ayudar</strong>
+                        <p>La solidaridad empieza aquí.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="presentacion-pie">
+                Comunidad Conecta · Unidos para ayudar
+            </p>
+        </section>
+
+        <section class="acceso-formulario">
+            <div class="formulario-contenido">
+
+                <div class="bienvenida-icono" aria-hidden="true">✦</div>
+
+                <p class="texto-superior">QUÉ BUENO TENERTE AQUÍ</p>
+                <h2>Bienvenido de nuevo</h2>
+                <p class="subtitulo">
+                    Inicia sesión para continuar.
+                </p>
+
+                <form id="formLogin">
+
+                    <div class="campo">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email"
+                               id="correo"
+                               name="correo"
+                               placeholder="ejemplo@correo.com"
+                               autocomplete="email"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <div class="campo-etiqueta">
+                            <label for="contrasena">Contraseña</label>
+                        </div>
+
+                        <div class="campo-contrasena">
+                            <input type="password"
+                                   id="contrasena"
+                                   name="contrasena"
+                                   placeholder="Ingresa tu contraseña"
+                                   autocomplete="current-password"
+                                   required>
+
+                            <button type="button"
+                                    id="btnMostrar"
+                                    class="btn-mostrar"
+                                    aria-label="Mostrar contraseña"
+                                    aria-pressed="false">
+                                Ver
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn-principal" type="submit">
+                        Iniciar sesión
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p id="mensaje" class="mensaje" role="status"
+                       aria-live="polite"></p>
+                </form>
+
+                <div class="separador">
+                    <span></span>
+                    <p>¿Primera vez aquí?</p>
+                    <span></span>
+                </div>
+
+                <a href="/paginas/registro.html"
+                   class="btn-secundario">
+                    Crear una cuenta
+                </a>
+
+                <p class="aviso">
+                    Al continuar, estás entrando a tu espacio comunitario.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

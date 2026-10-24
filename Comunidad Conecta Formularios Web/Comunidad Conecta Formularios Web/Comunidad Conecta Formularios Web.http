@@ -1,0 +1,6 @@
+@Comunidad_Conecta_Formularios_Web_HostAddress = http://localhost:5146
+
+GET {{Comunidad_Conecta_Formularios_Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

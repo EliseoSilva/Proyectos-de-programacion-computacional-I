@@ -1,0 +1,322 @@
+﻿// todo el código
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios | Comunidad Conecta</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/inicio.css">
+    <link rel="stylesheet" href="/css/usuarios.css">
+</head>
+
+<body class="pagina-inicio pagina-modulo">
+
+    <!-- BARRA LATERAL ORIGINAL -->
+    <aside class="barra-lateral">
+        <a href="/paginas/inicio.html" class="marca">
+            <span class="marca-icono">CC</span>
+            <span class="marca-texto">
+                <strong>Comunidad</strong>
+                <strong>Conecta<span class="punto">.</span></strong>
+            </span>
+        </a>
+
+        <p class="menu-titulo">MENÚ PRINCIPAL</p>
+
+        <nav class="navegacion">
+            <a href="/paginas/inicio.html" class="enlace-menu">
+                <span>⌂</span> Inicio
+            </a>
+
+            <a href="/paginas/donaciones.html" class="enlace-menu">
+                <span>♡</span> Donaciones
+            </a>
+
+            <a href="/paginas/solicitudes.html" class="enlace-menu">
+                <span>▤</span> Solicitudes
+            </a>
+
+            <a href="/paginas/mascotas.html" class="enlace-menu">
+                <span>♧</span> Mascotas
+            </a>
+
+            <a href="/paginas/usuarios.html" class="enlace-menu activo">
+                <span>♙</span> Usuarios
+            </a>
+        </nav>
+
+        <div class="lateral-inferior">
+            <div class="ayuda-card">
+                <strong>¿Necesitas ayuda?</strong>
+                <p>Estamos aquí para apoyarte.</p>
+            </div>
+
+            <a href="/" class="enlace-menu enlace-salir">
+                <span>↪</span> Cerrar sesión
+            </a>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="zona-principal">
+
+        <!-- ENCABEZADO CON EL DISEÑO ORIGINAL -->
+        <header class="barra-superior">
+            <div>
+                <p class="miga">COMUNIDAD / USUARIOS</p>
+                <h1>Gestión de usuarios</h1>
+            </div>
+
+            <div class="perfil">
+                <div class="avatar">CC</div>
+
+                <div class="perfil-info">
+                    <strong>Mi comunidad</strong>
+                    <span>Administración de usuarios</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- PRESENTACIÓN DEL MÓDULO -->
+        <section class="modulo-intro">
+            <div>
+                <span class="etiqueta">COMUNIDAD CONECTA</span>
+                <h2>Personas que hacen crecer la comunidad</h2>
+                <p>
+                    Revisa los usuarios registrados, consulta sus datos
+                    y administra el estado de sus cuentas.
+                </p>
+            </div>
+
+            <button type="button" class="btn-principal" id="btnNuevoUsuario">
+                + Nuevo usuario
+            </button>
+        </section>
+
+        <!-- RESUMEN DE USUARIOS -->
+        <section class="resumen-donaciones">
+
+            <article class="resumen-card">
+                <span>Total de usuarios</span>
+                <strong id="totalUsuarios">0</strong>
+                <p>Personas registradas</p>
+            </article>
+
+            <article class="resumen-card">
+                <span>Usuarios activos</span>
+                <strong id="usuariosActivos">0</strong>
+                <p>Cuentas habilitadas</p>
+            </article>
+
+            <article class="resumen-card">
+                <span>Administradores</span>
+                <strong id="totalAdministradores">0</strong>
+                <p>Con acceso administrativo</p>
+            </article>
+
+            <article class="resumen-card">
+                <span>Usuarios inactivos</span>
+                <strong id="usuariosInactivos">0</strong>
+                <p>Cuentas deshabilitadas</p>
+            </article>
+
+        </section>
+
+        <!-- TABLA DE USUARIOS -->
+        <section class="tabla-contenedor">
+
+            <div class="tabla-encabezado">
+                <h2>Usuarios registrados</h2>
+                <p>Busca y administra los registros de ejemplo.</p>
+            </div>
+
+            <!-- BUSCADOR Y FILTROS -->
+            <div class="filtros-tabla">
+                <input type="search"
+                       id="buscarUsuario"
+                       placeholder="Buscar por nombre, correo o teléfono..."
+                       aria-label="Buscar usuarios">
+
+                <select id="filtroRol" aria-label="Filtrar por rol">
+                    <option value="">Todos los roles</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario">Usuario</option>
+                    <option value="Voluntario">Voluntario</option>
+                </select>
+
+                <select id="filtroEstado" aria-label="Filtrar por estado">
+                    <option value="">Todos los estados</option>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+
+            <div class="tabla-scroll">
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Correo electrónico</th>
+                            <th>Teléfono</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaUsuarios">
+                        <!-- Los registros se generan desde usuarios.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="mensajeVacio" class="mensaje-vacio" hidden>
+                No se encontraron usuarios que coincidan con la búsqueda.
+            </div>
+
+            <div class="tabla-pie">
+                <span id="contadorUsuarios">Mostrando 0 usuarios</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL: CREAR O EDITAR USUARIO -->
+    <div class="modal" id="modalUsuario" aria-hidden="true">
+        <div class="modal-contenido">
+
+            <div class="modal-encabezado">
+                <div>
+                    <h2 id="tituloModalUsuario">Nuevo usuario</h2>
+                    <p>Completa la información del usuario.</p>
+                </div>
+
+                <button type="button"
+                        class="modal-cerrar"
+                        id="cerrarModalUsuario"
+                        aria-label="Cerrar formulario">
+                    &times;
+                </button>
+            </div>
+
+            <form id="formularioUsuario">
+                <input type="hidden" id="idUsuario">
+
+                <div class="formulario-grid">
+
+                    <div class="campo">
+                        <label for="nombreUsuario">Nombres</label>
+                        <input type="text" id="nombreUsuario" maxlength="100"
+                               placeholder="Ej. Ana María" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="apellidoUsuario">Apellidos</label>
+                        <input type="text" id="apellidoUsuario" maxlength="100"
+                               placeholder="Ej. López Hernández" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correoUsuario">Correo electrónico</label>
+                        <input type="email" id="correoUsuario" maxlength="120"
+                               placeholder="usuario@correo.com" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefonoUsuario">Teléfono</label>
+                        <input type="tel" id="telefonoUsuario" maxlength="20"
+                               placeholder="Ej. 7000-0000">
+                    </div>
+
+                    <div class="campo">
+                        <label for="departamentoUsuario">Departamento</label>
+                        <input type="text" id="departamentoUsuario" maxlength="100"
+                               placeholder="Ej. San Salvador">
+                    </div>
+
+                    <div class="campo">
+                        <label for="direccionUsuario">Dirección</label>
+                        <input type="text" id="direccionUsuario" maxlength="200"
+                               placeholder="Dirección del usuario">
+                    </div>
+
+                    <div class="campo">
+                        <label for="rolUsuario">Rol</label>
+                        <select id="rolUsuario" required>
+                            <option value="Ciudadano">Ciudadano</option>
+                            <option value="Usuario">Usuario</option>
+                            <option value="Voluntario">Voluntario</option>
+                            <option value="Administrador">Administrador</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fotoUsuario">Foto (ruta o URL)</label>
+                        <input type="text" id="fotoUsuario" maxlength="255"
+                               placeholder="Ej. fotos/ana.jpg">
+                    </div>
+
+                    <div class="campo">
+                        <label for="biografiaUsuario">Biografía</label>
+                        <textarea id="biografiaUsuario" rows="3"
+                                  placeholder="Cuéntanos sobre el usuario"></textarea>
+                    </div>
+
+                </div> <!-- Aquí termina formulario-grid -->
+
+                <div class="modal-acciones">
+                    <button type="button"
+                            class="btn-secundario"
+                            id="cancelarUsuario">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn-principal">
+                        Guardar usuario
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: DETALLE DEL USUARIO -->
+    <div class="modal" id="modalDetalleUsuario" aria-hidden="true">
+        <div class="modal-contenido modal-detalle">
+
+            <div class="modal-encabezado">
+                <div>
+                    <h2>Detalle del usuario</h2>
+                    <p>Información del registro seleccionado.</p>
+                </div>
+
+                <button type="button"
+                        class="modal-cerrar"
+                        id="cerrarDetalleUsuario"
+                        aria-label="Cerrar detalle">
+                    &times;
+                </button>
+            </div>
+
+            <div id="contenidoDetalleUsuario">
+                <!-- Los detalles se generan desde usuarios.js -->
+            </div>
+
+            <div class="modal-acciones">
+                <button type="button"
+                        class="btn-secundario"
+                        id="cerrarDetalleBoton">
+                    Cerrar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/usuarios.js"></script>
+</body>
+</html>

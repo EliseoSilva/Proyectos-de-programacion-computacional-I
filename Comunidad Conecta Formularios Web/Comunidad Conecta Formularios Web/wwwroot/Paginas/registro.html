@@ -1,0 +1,171 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#172d50">
+
+    <title>Crear cuenta | Comunidad Conecta</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/registro.css">
+</head>
+<body class="pagina-acceso">
+
+    <main class="acceso-contenedor registro-contenedor">
+
+        <section class="acceso-presentacion">
+            <a class="marca" href="/">
+                <span class="marca-icono">CC</span>
+                <span class="marca-texto">
+                    <strong>Comunidad</strong>
+                    <strong>Conecta<span class="punto">.</span></strong>
+                </span>
+            </a>
+
+            <div class="presentacion-contenido">
+                <span class="etiqueta">FORMA PARTE DEL CAMBIO</span>
+
+                <h1>
+                    Tu comunidad.<br>
+                    <span>Tu oportunidad de ayudar.</span>
+                </h1>
+
+                <p>
+                    Crea tu cuenta para conectar con personas,
+                    compartir recursos y participar en iniciativas
+                    que mejoran nuestra comunidad.
+                </p>
+
+                <div class="presentacion-dato">
+                    <span class="dato-icono">♡</span>
+                    <div>
+                        <strong>Unidos para ayudar</strong>
+                        <p>Cada persona puede marcar la diferencia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="presentacion-pie">
+                Comunidad Conecta · Unidos para ayudar
+            </p>
+        </section>
+
+        <section class="acceso-formulario registro-formulario">
+            <div class="formulario-contenido">
+
+                <div class="bienvenida-icono" aria-hidden="true">✦</div>
+
+                <p class="texto-superior">ÚNETE A NOSOTROS</p>
+                <h2>Crea tu cuenta</h2>
+                <p class="subtitulo">
+                    Completa tus datos para registrarte.
+                </p>
+
+                <form id="formRegistro">
+
+                    <div class="registro-campos">
+                        <div class="campo">
+                            <label for="nombres">Nombres</label>
+                            <input type="text"
+                                   id="nombres"
+                                   name="nombres"
+                                   placeholder="Tus nombres"
+                                   autocomplete="given-name"
+                                   maxlength="80"
+                                   required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text"
+                                   id="apellidos"
+                                   name="apellidos"
+                                   placeholder="Tus apellidos"
+                                   autocomplete="family-name"
+                                   maxlength="80"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correoRegistro">
+                            Correo electrónico
+                        </label>
+                        <input type="email"
+                               id="correoRegistro"
+                               name="correo"
+                               placeholder="ejemplo@correo.com"
+                               autocomplete="email"
+                               maxlength="150"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel"
+                               id="telefono"
+                               name="telefono"
+                               placeholder="Tu número de teléfono"
+                               autocomplete="tel"
+                               maxlength="20"
+                               pattern="[0-9+() -]{8,20}"
+                               title="Introduce un teléfono válido."
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="claveRegistro">Contraseña</label>
+                        <input type="password"
+                               id="claveRegistro"
+                               name="contrasena"
+                               placeholder="Mínimo 8 caracteres"
+                               autocomplete="new-password"
+                               minlength="8"
+                               maxlength="128"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmarClave">
+                            Confirmar contraseña
+                        </label>
+                        <input type="password"
+                               id="confirmarClave"
+                               name="confirmarContrasena"
+                               placeholder="Escribe la contraseña nuevamente"
+                               autocomplete="new-password"
+                               minlength="8"
+                               maxlength="128"
+                               required>
+                    </div>
+
+                    <p id="mensajeRegistro"
+                       class="mensaje"
+                       role="status"
+                       aria-live="polite"></p>
+
+                    <button class="btn-principal" type="submit">
+                        Crear cuenta
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </form>
+
+                <p class="registro-enlace">
+                    ¿Ya tienes una cuenta?
+                    <a href="/">Inicia sesión</a>
+                </p>
+
+                <p class="aviso">
+                    Tus datos se utilizarán para crear tu cuenta en Comunidad Conecta.
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/js/registro.js"></script>
+</body>
+</html>
