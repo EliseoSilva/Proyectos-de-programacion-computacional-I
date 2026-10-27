@@ -22,36 +22,31 @@ namespace Comunidad_Conecta_Formularios_Web.Controllers
                 Path.Combine(_environment.WebRootPath, "paginas", "registro.html"),
                 "text/html");
         }
-
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("inicio.html")]
         public IActionResult Inicio()
         {
             return PaginaPrivada("inicio.html");
         }
-
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("usuarios.html")]
         public IActionResult Usuarios()
         {
             return PaginaPrivada("usuarios.html");
         }
-
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("donaciones.html")]
         public IActionResult Donaciones()
         {
             return PaginaPrivada("donaciones.html");
         }
-
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("solicitudes.html")]
         public IActionResult Solicitudes()
         {
             return PaginaPrivada("solicitudes.html");
         }
-
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("mascotas.html")]
         public IActionResult Mascotas()
         {

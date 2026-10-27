@@ -1,0 +1,42 @@
+wwwroot\css\estilos.css
+wwwroot\css\inicio.css
+wwwroot\css\mascotas.css
+wwwroot\css\modulos.css
+wwwroot\css\registro.css
+wwwroot\css\solicitudes.css
+wwwroot\css\usuarios.css
+wwwroot\index.html
+wwwroot\js\app.js
+wwwroot\js\donaciones.js
+wwwroot\js\mascotas.js
+wwwroot\js\registro.js
+wwwroot\js\Sesion.js
+wwwroot\js\solicitudes.js
+wwwroot\js\usuarios.js
+wwwroot\Paginas\donaciones.html
+wwwroot\Paginas\inicio.html
+wwwroot\Paginas\mascotas.html
+wwwroot\Paginas\registro.html
+wwwroot\Paginas\solicitudes.html
+wwwroot\Paginas\usuarios.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\estilos.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\inicio.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\mascotas.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\modulos.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\registro.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\solicitudes.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\css\usuarios.css
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\index.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\app.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\donaciones.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\mascotas.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\registro.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\Sesion.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\solicitudes.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\js\usuarios.js
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\Paginas\donaciones.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\Paginas\inicio.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\Paginas\mascotas.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\Paginas\registro.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\Paginas\solicitudes.html
+C:\Users\elise\source\repos\EliseoSilva\Proyectos-de-programacion-computacional-I\Comunidad Conecta Formularios Web\Comunidad Conecta Formularios Web\wwwroot\Paginas\usuarios.html
