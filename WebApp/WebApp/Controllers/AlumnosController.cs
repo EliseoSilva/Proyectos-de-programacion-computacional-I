@@ -1,5 +1,6 @@
  using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Webapp.Models;
 using WebApp.Models;
 
 [Route("api/[controller]")]
@@ -18,6 +19,19 @@ public class AlumnosController : ControllerBase
     {
         return await _context.Alumnos.ToListAsync();
     }
+
+    // GET: api/Alumno/buscar
+    [HttpGet("buscar")]
+    public async Task<ActionResult<IEnumerable<alumnos>>> BuscarAlumno([FromQuery]AlumnoBusquedaParametros parametros)
+    {
+        var consulta = _context.Alumnos.AsQueryable();
+        if (!string.IsNullOrEmpty(parametros.buscar))
+        {
+            consulta = consulta.Where(alumno => alumno.nombre.Contains(parametros.buscar));
+        }
+        return await consulta.ToListAsync();
+    }
+
 
     // GET: api/alumnos/5
     [HttpGet("{idalumno}")]
