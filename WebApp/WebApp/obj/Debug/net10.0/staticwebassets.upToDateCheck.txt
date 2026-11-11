@@ -1,3 +1,7 @@
 wwwroot\img\logo ugb.png
 wwwroot\views\index.html
-C:\Users\elise\source\repos\Proyectos-de-programacion-computacional-I\WebApp\WebApp\wwwroot\views\index.html
+wwwroot\views\alumno.html
+wwwroot\views\app.js
+C:\Users\elise\source\repos\Proyectos-de-programacion-computacionaI-l\WebApp\WebApp\wwwroot\views\index.html
+C:\Users\elise\source\repos\Proyectos-de-programacion-computacionaI-l\WebApp\WebApp\wwwroot\views\app.js
+C:\Users\elise\source\repos\Proyectos-de-programacion-computacionaI-l\WebApp\WebApp\wwwroot\views\alumno.html

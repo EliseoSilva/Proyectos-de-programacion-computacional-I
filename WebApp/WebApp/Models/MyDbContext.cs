@@ -5,11 +5,11 @@ namespace WebApp.Models
     {
         public MyDbContext() { }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
-        public DbSet<Alumnos> Alumnos { get; set; }
+        public DbSet<alumnos> Alumnos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Alumnos>().HasKey(a => a.idAlumno);
+            modelBuilder.Entity<alumnos>().HasKey(a => a.idAlumno);
         }
     }
 }

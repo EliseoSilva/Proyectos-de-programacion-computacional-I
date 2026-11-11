@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace WebApp.Models
 {
-    public class Alumnos
+    public class alumnos
     {
         [Key]
         public int idAlumno { get; set; }
