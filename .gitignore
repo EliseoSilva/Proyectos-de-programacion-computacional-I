@@ -1,1 +1,26 @@
+# Visual Studio: archivos de estado y configuracion local del IDE
 .vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Compilacion de .NET / Visual Studio
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+[Tt]est[Rr]esults/
+
+# Salidas locales de compilacion
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Archivos de usuario de proyectos .NET
+*.csproj.user
+*.vbproj.user
+
+# Paquetes NuGet generados localmente
+*.nupkg
