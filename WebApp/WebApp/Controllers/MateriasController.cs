@@ -20,7 +20,7 @@ public class MateriasController : ControllerBase
     }
 
     // GET: api/Materia/5
-    [HttpGet("{idmateria}")]
+    [HttpGet("buscar")]
     public async Task<ActionResult<Materia>> GetMateria(int idmateria)
     {
         var materia = await _context.Materia.FindAsync(idmateria);
